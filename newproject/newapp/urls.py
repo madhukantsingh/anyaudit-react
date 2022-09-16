@@ -13,6 +13,6 @@ urlpatterns=[
     url(r'^type/([0-9]+)$',views.TypeApi),
     url(r'^heads$',views.HeadsApi),
     url(r'^heads/([0-9]+)$',views.HeadsApi),
-    url(r'^items$',views.ItemsApi),
-    url(r'^items/([0-9]+)$',views.ItemsApi),
+    # url(r'^items$',views.ItemsApi),
+    # url(r'^items/([0-9]+)$',views.ItemsApi),
 ]

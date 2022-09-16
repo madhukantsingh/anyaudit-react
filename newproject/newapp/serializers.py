@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from newapp.models import Bussiness,Type,Heads,Items
+from newapp.models import Bussiness,Type,Heads
 
 class BussinessSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,7 +10,6 @@ class BussinessSerializer(serializers.ModelSerializer):
                   'location',                  
                   'products',
                   'type',
-                  'items',
                   'IEAL',
                   'heads')
 
@@ -25,12 +24,12 @@ class TypeSerializer(serializers.ModelSerializer):
 
 
                   
-class ItemsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Items
-        fields = ('id',
-                  'items'
-                  )
+# class ItemsSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Items
+#         fields = ('id',
+#                   'items'
+#                   )
 
 class HeadsSerializer(serializers.ModelSerializer):
     class Meta:

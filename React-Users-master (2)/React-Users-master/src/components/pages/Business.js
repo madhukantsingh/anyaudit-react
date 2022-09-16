@@ -39,9 +39,7 @@ const Business = () => {
               <th scope="col">location</th>
               <th scope="col">products</th>
               <th scope="col">IEAL</th>
-              <th scope="col">heads</th>
-              <th scope="col">type</th>
-              <th scope>Items</th>
+              
 
 
              
@@ -57,11 +55,9 @@ const Business = () => {
                 <td>{user.name}</td>
                 <td>{user.description}</td>
                 <td>{user.location}</td>
-                <td>{user.products}</td>
-                <td>{user.IEAL}</td>
-                <td>{user.heads}</td>
-                <td>{user.type}</td>
-                <td>{user.items}</td>
+                <td>{user.products}-{user.type}</td>
+                <td>{user.IEAL}-{user.heads}</td>
+                
 
                 <td>
                   <Link class="btn btn-dark mr-2" to={`/users/${user.id}`}>

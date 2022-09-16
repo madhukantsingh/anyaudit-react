@@ -8,8 +8,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from newapp.models import Bussiness,Type,Heads,Items
-from newapp.serializers import BussinessSerializer,TypeSerializer,HeadsSerializer,ItemsSerializer
+from newapp.models import Bussiness,Type,Heads
+from newapp.serializers import BussinessSerializer,TypeSerializer,HeadsSerializer
 
 from django.core.files.storage import default_storage
 
@@ -190,59 +190,5 @@ def HeadsApi(request,id = 0):
         heads=Heads.objects.get(id=id)
         heads.delete()
         return JsonResponse("Deleted Succeffully!!", safe=False)
-@csrf_exempt
-def ItemsApi(request,id = 0):
-    if request.method=='GET':
-        print(request,"tharun",id)
-        if id:
-            try:
-                print(id, request,"intry")
-                items=Items.objects.get(pk=id)
-                print(id, request,"intry")
-                print(type)
-                items_serializer=ItemsSerializer(items,many=False)
-                # print(items_serializer.data,"business_data")
-                response =  JsonResponse(items_serializer.data, safe=False) 
-                print(response)
-            except:
-                print("tharun exception")
-        else:
 
-            itmes = Items.objects.all()
-            # print(heads)
-            items_serializer = ItemsSerializer(itmes, many=True) 
-            # print(heads_serializer.data,"business_data")
-            response =  JsonResponse(items_serializer.data, safe=False)        
-        return response
-    elif request.method=='POST':
-        print(request,"tharun",id)
-        items_data=JSONParser().parse(request)
-        print(items_data)
-        items_serializer = ItemsSerializer(data=items_data)
-        # print("tharun",heads_serializer)
-        # print(heads_serializer.is_valid())
-        if items_serializer.is_valid():
-            items_serializer.save()
-            print("tharun")
-            response=JsonResponse("Added Successfully!!" , safe=False)
-            print(response)
-            return response
-        return JsonResponse("Failed.",safe=False)
-
-    elif request.method=='PUT':
-        items_data = JSONParser().parse(request)
-        itmes=Items.objects.get(id=items_data['id'])
-        items_serializer=ItemsSerializer(heads,data=items_data)
-        # print("tharun",itmes_serializer)
-        print(items_serializer.is_valid())
-        if items_serializer.is_valid():
-            items_serializer.save()
-            return JsonResponse("Updated Successfully!!", safe=False)
-        return JsonResponse("Failed to Update.", safe=False)
-
-    elif request.method=='DELETE':
-        print(id,"this is id")
-        heads=Items.objects.get(id=id)
-        heads.delete()
-        return JsonResponse("Deleted Succeffully!!", safe=False)
 
