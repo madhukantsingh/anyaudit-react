@@ -15,4 +15,6 @@ urlpatterns=[
     url(r'^heads/([0-9]+)$',views.HeadsApi),
     url(r'^items$',views.ItemsApi),
     url(r'^items/([0-9]+)$',views.ItemsApi),
+    url(r'^educational$',views.EducationalApi),
+    url(r'^educational/([0-9]+)$',views.EducationalApi),
 ]

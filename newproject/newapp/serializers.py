@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from newapp.models import Bussiness,Type,Heads,Items
+from newapp.models import Bussiness,Type,Heads,Items,Educational
 
 class BussinessSerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,6 +37,15 @@ class HeadsSerializer(serializers.ModelSerializer):
         model = Heads
         fields = ('id',
                   'heads'
+                  )
+
+class EducationalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Educational
+        fields = ('id',
+                  'qualification',
+                  'board',
+                  'percentage'
                   )
 
 

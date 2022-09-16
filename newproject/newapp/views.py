@@ -8,8 +8,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from newapp.models import Bussiness,Type,Heads,Items
-from newapp.serializers import BussinessSerializer,TypeSerializer,HeadsSerializer,ItemsSerializer
+from newapp.models import Bussiness,Type,Heads,Items,Educational
+from newapp.serializers import BussinessSerializer,TypeSerializer,HeadsSerializer,ItemsSerializer,EducationalSerializer
 
 from django.core.files.storage import default_storage
 
@@ -245,4 +245,58 @@ def ItemsApi(request,id = 0):
         heads=Items.objects.get(id=id)
         heads.delete()
         return JsonResponse("Deleted Succeffully!!", safe=False)
+
+@csrf_exempt
+def EducationalApi(request,id = 0):
+    if request.method=='GET':
+        print(request,"tharun",id)
+        if id:
+            try:
+                educational=Educational.objects.get(pk=id)
+                educational_serializer=EducationalSerializer(educational,many=False)
+                #print(business_serializer.data,"business_data")
+                response =  JsonResponse(educational_serializer.data, safe=False) 
+            except:
+                print("exception")
+        else:
+
+            educational = Educational.objects.all()
+            educational_serializer = EducationalSerializer(educational, many=True) 
+            response =  JsonResponse(educational_serializer.data, safe=False)        
+        return response
+
+
+    elif request.method=='POST':
+        educational_data=JSONParser().parse(request)
+        educational_serializer = EducationalSerializer(data=educational_data)
+        if educational_serializer.is_valid():
+            educational_serializer.save()
+            response=JsonResponse("Added Successfully!!" , safe=False)
+            print(response)
+            return response
+        return JsonResponse("Failed.",safe=False)
+
+    elif request.method=='PUT':
+        educational_data = JSONParser().parse(request)
+        educational=Educational.objects.get(id=educational_data['id'])
+        educational_serializer=EducationalSerializer(educational,data=educational_data)
+        
+        if educational_serializer.is_valid():
+            educational_serializer.save()
+            return JsonResponse("Updated Successfully!!", safe=False)
+        return JsonResponse("Failed to Update.", safe=False)
+
+    elif request.method=='DELETE':
+        print(id,"this is id")
+        educational=Educational.objects.get(id=id)
+        educational.delete()
+        return JsonResponse("Deleted Succeffully!!", safe=False)
+    
+
+@csrf_exempt
+def SaveFile(request):
+    file=request.FILES['myFile']
+    file_name = default_storage.save(file.name,file)
+
+    return JsonResponse(file_name,safe=False)
 

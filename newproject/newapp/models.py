@@ -39,3 +39,13 @@ class Items(models.Model):
 
     class Meta:
         db_table="items"
+
+class Educational(models.Model):
+    id=models.IntegerField(primary_key=True)
+    qualification=models.CharField( max_length=100)
+    board=models.CharField(max_length=450)
+    percentage=models.CharField(max_length=45)
+
+    class Meta:
+        
+        db_table = 'educational'
