@@ -11,7 +11,7 @@ class Bussiness(models.Model):
     type=models.CharField( max_length=50)
     IEAL=models.CharField( max_length=50)
     heads=models.CharField( max_length=50)
-    items=models.CharField( max_length=50, null=True)
+   
     
     class Meta:
         db_table ='bussiness'
@@ -32,10 +32,3 @@ class Heads(models.Model):
     class Meta:
         db_table="heads"
 
-class Items(models.Model):
-    id=models.AutoField(primary_key=True)
-    items=models.CharField(max_length=50)
-
-
-    class Meta:
-        db_table="items"
