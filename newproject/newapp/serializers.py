@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from newapp.models import Bussiness,Type,Heads,Educational,Networth,Persons
+from newapp.models import Bussiness,Type,Heads,Educational,Networth,Persons,Products,Family,Uom
 
 class BussinessSerializer(serializers.ModelSerializer):
     class Meta:
@@ -67,3 +67,23 @@ class PersonsSerializer(serializers.ModelSerializer):
                   'income',
                   'taxpaid'
                   )
+class ProductsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Products
+        fields = ('id',
+                  'product_name',
+                  'UOM')
+class FamilySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Family
+        fields = ('id',
+                  'f_name',
+                  'defaults',
+                  'u_of_measurement')
+
+class UomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Uom
+        fields = ('id',
+                  'family_name',
+                  'measure')

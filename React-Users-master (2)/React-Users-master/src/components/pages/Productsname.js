@@ -10,12 +10,12 @@ const Productsname = () => {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("http://127.0.0.1:8000/");
+    const result = await axios.get("http://127.0.0.1:8000/products");
     setUser(result.data.reverse());
   };
 
   const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000//${id}`);
+    await axios.delete(`http://127.0.0.1:8000/products/${id}`);
     loadUsers();
   };
 
@@ -43,8 +43,9 @@ const Productsname = () => {
             {users.map((user, index) => (
               <tr>
                 <th scope="row">{index + 1}</th>
-                <td>{user.id}</td>
-                <td>{user.nameoftheproduct}</td>
+                {/* <td>{user.id}</td> */}
+                <td>{user.product_name}</td>
+                <td>{user.UOM}</td>
                 
                 <td>
                   {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>

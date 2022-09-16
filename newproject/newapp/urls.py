@@ -19,4 +19,10 @@ urlpatterns=[
     url(r'^networth/([0-9]+)$',views.NetworthlApi),
     url(r'^persons$',views.PersonslApi),
     url(r'^persons/([0-9]+)$',views.PersonslApi),
+    url(r'^products$',views.ProductsApi),
+    url(r'^products/([0-9]+)$',views.ProductsApi),
+    url(r'^family$',views.FamilyApi),
+    url(r'^family/([0-9]+)$',views.FamilyApi),
+    url(r'^uom$',views.UomApi),
+    url(r'^uom/([0-9]+)$',views.UomApi),
 ]

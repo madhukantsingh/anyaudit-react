@@ -47,7 +47,7 @@ class Educational(models.Model):
 
 class Networth(models.Model):
     id=models.AutoField(primary_key=True)
-    assessment_year=models.CharField(max_length=45)
+    assessment_year=models.CharField(max_length=45,default=True,null = True)
     dor=models.DateField(auto_now=False, auto_now_add=False)
     income=models.CharField(max_length=45)
     taxpaid=models.EmailField(max_length=45)
@@ -66,10 +66,36 @@ class Persons(models.Model):
     percentage = models.CharField(max_length=45, blank=True, null=True)
     cibil = models.CharField(max_length=45)
     rbi = models.CharField(max_length=45)
-    assessment_year = models.CharField(max_length=45) 
+    assessment_year = models.CharField(max_length=45,default=0) 
     dor = models.DateField(blank=True, null=True)
     income = models.CharField(max_length=45, blank=True, null=True)    
     taxpaid = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta: 
         db_table = 'persons'
+        
+class Products(models.Model):
+    id=models.AutoField(primary_key=True)
+    product_name=models.CharField(max_length=45)
+    UOM=models.CharField(max_length=60)
+
+
+    class Meta:
+        db_table ='products'
+
+class Uom(models.Model):
+    id=models.AutoField(primary_key=True)
+    family_name=models.CharField(max_length=45)
+    measure=models.CharField(max_length=15)
+
+    class Meta:
+        db_table ='uom'
+
+class Family(models.Model):
+    id=models.AutoField(primary_key=True)
+    f_name=models.CharField(max_length=45)
+    defaults=models.CharField(max_length=15)
+    u_of_measurement=models.CharField(max_length=15)
+
+    class Meta:
+        db_table ='family'

@@ -6,20 +6,20 @@ const AddFamily = () => {
   let history = useHistory();
   const [user, setUser] = useState({
     
-    name: "",
+    f_name: "",
     defaults: "",
-    uomdefect:""
+    u_of_measurement:""
     
   });
 
-  const { name, defaults, uomdefect } = user;
+  const { f_name, defaults, u_of_measurement } = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const onSubmit = async e => { console.log(user)
     e.preventDefault();
-    await axios.post("http://127.0.0.1:8000/users", user);
+    await axios.post("http://127.0.0.1:8000/family", user);
     history.push("/");
   };
   return (
@@ -36,8 +36,8 @@ const AddFamily = () => {
               type="text"
              
               placeholder="Enter Your name"
-              name="name"
-              value={name}
+              name="f_name"
+              value={f_name}
               onChange={e => onInputChange(e)}
             />
           </div>
@@ -56,13 +56,13 @@ const AddFamily = () => {
           
 
           <div className="form-group">
-            <b>Uom Defect:</b>
+            <b>Uom default:</b>
             <input
               type="text"
               
               placeholder="Enter Your name"
-              name="uomdefect"
-              value={uomdefect}
+              name="u_of_measurement"
+              value={u_of_measurement}
               onChange={e => onInputChange(e)}
             />
           </div>
