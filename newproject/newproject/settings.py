@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'newproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':  "project",
+        'NAME':  "gitproject",
         "HOST": "localhost",  
         "USER": "root",
-        "PASSWORD": "123456789@mk",
+        "PASSWORD": "root@123",
         "PORT": "3306",  
     }
 }

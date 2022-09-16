@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from newapp.models import Bussiness,Type,Heads,Items,Educational
+from newapp.models import Bussiness,Type,Heads,Educational,Networth,Persons
 
 class BussinessSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,7 +10,6 @@ class BussinessSerializer(serializers.ModelSerializer):
                   'location',                  
                   'products',
                   'type',
-                  'items',
                   'IEAL',
                   'heads')
 
@@ -24,21 +23,6 @@ class TypeSerializer(serializers.ModelSerializer):
                   )
 
 
-                  
-class ItemsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Items
-        fields = ('id',
-                  'items'
-                  )
-
-class HeadsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Heads
-        fields = ('id',
-                  'heads'
-                  )
-
 class EducationalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Educational
@@ -48,4 +32,38 @@ class EducationalSerializer(serializers.ModelSerializer):
                   'percentage'
                   )
 
+class HeadsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Heads
+        fields = ('id',
+                  'heads',
+                  )
 
+class NetworthSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Networth
+        fields = ('id',
+                  'assessment_year',
+                  'dor',
+                  'income',
+                  'taxpaid'
+                  )
+
+class PersonsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Persons
+        fields = ('id',
+                  'name',
+                  'dob',
+                  'phone',
+                  'email',
+                  'qualification',
+                  'board',
+                  'percentage',
+                  'cibil',
+                  'rbi',
+                  'assessment_year',
+                  'dor',
+                  'income',
+                  'taxpaid'
+                  )
