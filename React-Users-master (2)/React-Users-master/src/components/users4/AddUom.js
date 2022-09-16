@@ -1,66 +1,108 @@
-import React, { useState } from "react";
+
+import React, { Component, useEffect, useState } from "react";
 import axios from 'axios'
-import { useHistory } from "react-router-dom";
-import { configure } from "@testing-library/react";
+import { Link, useHistory } from "react-router-dom";
+import {Modal,Button, Row, Col, Form} from 'react-bootstrap';
 
-const AddUom = () => {
-  let history = useHistory();
-  const [user, setUser] = useState({
+export class AddUom extends Component{
+  constructor(props) {
+    super(props)
+    this.state = {deps:[]};
+      // console.log("adsfadsfsaf")
+      this.handleSubmit=this.handleSubmit.bind(this);
+
     
-    familyname: "",
-    measure:""
-    
-  });
-
-  const {measure } = user;
-  const onInputChange = e => {
-    setUser({ ...user, [e.target.name]: e.target.value });
   };
+  componentDidMount(){
+    // console.log("adsfadsfsaf")
+      fetch("http://localhost:8000/")
+      .then(response=>response.json())
+      .then(data=>{
+          this.setState({deps:data});
+           console.log("adsfadsfsaf,thar",data)
+      });
+     
+  }
+  
 
-  const onSubmit = async e => { console.log(user)
-    e.preventDefault();
-    await axios.post("http://127.0.0.1:8000/users", user);
-    history.push("/");
-  };
+
+
+  handleSubmit(event){
+    console.log(event)
+    event.preventDefault();
+    fetch("http://localhost:8000/",{
+        method:'POST',
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+            id:null,
+            familyname:event.target.familyname.value,
+            measure:event.target.measure.value
+           
+           
+          
+
+            
+
+
+        })
+    })
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Failed');
+    })
+}
+render(){
   return (
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">UOM Master</h2>
-        <center>
-        <form onSubmit={e => onSubmit(e)}>
-        
-         
-          <div className="form-group">
-            <b>Family Name:</b>&nbsp;
+        <h2 className="text-center mb-4">Uom Master</h2>
+        <div className="col-md-12">
+
+           
+        <Form onSubmit={this.handleSubmit}>
+        <div className="row">
+                  
+                    <Form.Group controlId="familyname" className="col-md-6 form-group">
+                        <b>Family Name</b>
+                        <Form.Control as="select">
+                        {this.state.deps.map(dep=>
+                            <option key={dep.tid}>{dep.familyname}</option>)}
+                        </Form.Control>
+                    </Form.Group>
+
+			<Form.Group controlId="measure" className="col-md-6 form-group">
+                        <b>Measure</b>
+                        <Form.Control type="text" name="measure" required 
+                        placeholder="measure"/>
+                    </Form.Group>
             
-      <select>
-        <option value="name">Family Names Here</option>
-        <option value="f">f</option>
-        <option value="m">M</option>
-      </select>
-    
-          </div>
-          <div className="form-group">&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <b>Measure:</b>&nbsp;
-            <input
-              type="text"
-             
-              placeholder="Enter Your name"
-              name="measure"
-              value={measure}
-              onChange={e => onInputChange(e)}
-            />
-          </div>
-          
-          
-          
-          <button className="btn btn-primary ">Submit </button>
-        </form>
-        </center>
+                    <Form.Group>
+                        <Button variant="primary" type="submit"
+                          onClick={this.props.onHide}>
+                            Submit
+                        </Button>
+                    </Form.Group>
+                    </div>
+                </Form>
+
+                
+
+        </div>
       </div>
     </div>
   );
-};
+        }
+}
 
 export default AddUom;
+
+
+
+

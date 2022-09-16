@@ -25,7 +25,7 @@ const Home = () => {
       <div className="py-4">
         <h1>Company Form</h1>
         <Link className="btn btn-primary" to="/users/add">Add</Link>
-        <Link className="btn btn-center-outline-bule" to >Logout</Link>
+        {/* <Link className="btn btn-center-outline-bule" to >Logout</Link> */}
          &nbsp;
         <table class="table border shadow"> &nbsp;
         

@@ -177,7 +177,7 @@ const Business = () => {
       <div className="py-4">
         <h1>Business</h1>
         <Link className="btn btn-success" to="/users1/add">Add</Link>
-        <Link className="btn btn-right-outline-bule" to >Logout</Link>
+       
          
         <table class="table border shadow">
         
@@ -193,8 +193,7 @@ const Business = () => {
               <th scope="col">IEAL</th>
               <th scope="col">heads</th>
               <th scope="col">type</th>
-              <th scope>Items</th>
-
+             
 
              
               <th>Action</th>
@@ -213,7 +212,7 @@ const Business = () => {
                 <td>{user.IEAL}</td>
                 <td>{user.heads}</td>
                 <td>{user.type}</td>
-                <td>{user.items}</td>
+                
 
                 <td>
                   <Link class="btn btn-dark mr-2" to={`/users/${user.id}`}>

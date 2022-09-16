@@ -20,7 +20,7 @@ import EditUser from "./components/users/EditUser";
  import EditBusiness from "./components/users1/EditBusiness";
 import User from "./components/users/User";
 import AddHeads from "./components/users2/AddHeads";
-import AddItems from "./components/users8/AddItems";
+
 
 
 import AddTypes from "./components/users3/AddTypes";
@@ -39,7 +39,7 @@ import EditFamily from "./components/users5/EditFamily";
 import EditProductsname from "./components/users6/EditProductsname";
 import EditAssets from "./components/users7/EditAssets";
 import Sidebar from "./Sidebar";
-import Items from "./components/pages/Items";
+
 // import ViewBusiness from "./components/users1/ViewBusiness";
 function App() {
   return (
@@ -56,7 +56,7 @@ function App() {
           <Route exact path="/family" component={Family} /> 
           <Route exact path="/productname" component={Productsname} /> 
           <Route exact path="/assets" component={Assets} /> 
-          <Route exact path="/items" component={Items} /> 
+          
 
           <Route exact path="/users/add" component={AddUser} />
            <Route exact path="/users1/add" component={AddBusiness} /> 
@@ -66,7 +66,7 @@ function App() {
           <Route exact path="/users5/add" component={AddFamily} />
           <Route exact path="/users6/add" component={AddProductsname} />
           <Route exact path="/users7/add" component={AddAssets} />
-          <Route exact path="/users8/add" component={AddItems} />
+          
 
           <Route exact path="/users/edit/:id" component={EditUser} />
           {/* <Route exact path="/users1/edit/:id" component={EditBusiness} /> */}

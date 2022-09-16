@@ -1,70 +1,107 @@
-import React, { useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import axios from 'axios'
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import {Modal,Button, Row, Col, Form} from 'react-bootstrap';
 
-const AddProductsname = () => {
-  let history = useHistory();
-  const [user, setUser] = useState({
+export class AddProductsname extends Component{
+  constructor(props) {
+    super(props)
+    this.state = {deps:[]};
+      // console.log("adsfadsfsaf")
+      this.handleSubmit=this.handleSubmit.bind(this);
+
     
-    name: "",
-    uom:""
-    
-  });
-
-  const { name} = user;
-  const onInputChange = e => {
-    setUser({ ...user, [e.target.name]: e.target.value });
   };
+  componentDidMount(){
+    // console.log("adsfadsfsaf")
+      fetch("http://localhost:8000/")
+      .then(response=>response.json())
+      .then(data=>{
+          this.setState({deps:data});
+           console.log("adsfadsfsaf,thar",data)
+      });
+      
+  }
+  
 
-  const onSubmit = async e => {
-    e.preventDefault();
-    await axios.post("http://127.0.0.1:8000/users", user);
-    history.push("/");
-  };
+
+
+  handleSubmit(event){
+    console.log(event)
+    event.preventDefault();
+    fetch("http://localhost:8000/",{
+        method:'POST',
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+            id:null,
+            name:event.target.name.value,
+            uom:event.target.uom.value,
+           
+           
+          
+
+            
+
+
+        })
+    })
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Failed');
+    })
+}
+render(){
   return (
-    
-     <div className="container">
+    <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">Products Names</h2>
-        <center>
-        <form onSubmit={e => onSubmit(e)}>
-        
-         
-          <div className="form-group">
-          &nbsp;&nbsp;&nbsp;  <b>Products Name:</b>&nbsp;
-            <input
-              type="text"
-             
-              placeholder="Enter Your name"
-              name="name"
-              value={name}
-              onChange={e => onInputChange(e)}
-            />
-          </div>
+        <h2 className="text-center mb-4">Products Name</h2>
+        <div className="col-md-12">
 
-          
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <b>UOM:</b>&nbsp;
-      <select  className="form-group">
-        <option value="no. uom here">--no Uom Here--</option>
-        <option value="uom1">uom1</option>
-        <option value="uom2">uom2</option>
-      </select>&nbsp; &nbsp;
-     </div> 
-    
+           
+        <Form onSubmit={this.handleSubmit}>
+        <div className="row">
+                    <Form.Group controlId="name" className="col-md-6 form-group">
+                        <b>Name</b>
+                        <Form.Control type="text" name="name" required 
+                        placeholder="name"/>
+                    </Form.Group>
 
+		  
 
-          
-          
-          <center>
-                      <button className="btn btn-primary">Submit </button>
-                      </center>
-        </form>
-        </center>
+                    <Form.Group controlId="uom" className="col-md-6 form-group">
+                        <b>Uom</b>
+                        <Form.Control as="select">
+                        {this.state.deps.map(dep=>
+                            <option key={dep.tid}>{dep.uom}</option>)}
+                        </Form.Control>
+                    </Form.Group>
+
+		
+
+                    <Form.Group>
+                        <Button variant="primary" type="submit"
+                          onClick={this.props.onHide}>
+                            Submit
+                        </Button>
+                    </Form.Group>
+                    </div>
+                </Form>
+
+                
+
+        </div>
       </div>
     </div>
-
   );
-};
+        }
+}
 
-export default AddProductsname;
+export default AddProductsname
+

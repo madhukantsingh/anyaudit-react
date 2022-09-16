@@ -242,51 +242,56 @@ render(){
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
         <h2 className="text-center mb-4">Business</h2>
-        <center>
+        <div className="col-md-12">
+
+           
         <Form onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="name">
-                        <Form.Label>name</Form.Label>
+        <div className="row">
+                    <Form.Group controlId="name" className="col-md-6 form-group">
+                        <b>Name</b>
                         <Form.Control type="text" name="name" required 
                         placeholder="name"/>
                     </Form.Group>
 
-		   <Form.Group controlId="description">
-                        <Form.Label>description</Form.Label>
-                        <Form.Control type="text" name="description" required 
-                        placeholder="description"/>
-                    </Form.Group>
+		  
 
-		   <Form.Group controlId="location">
-                        <Form.Label>location</Form.Label>
+		   <Form.Group controlId="location" className="col-md-6 form-group">
+                        <b>Location</b>
                         <Form.Control type="text" name="location" required 
                         placeholder="location"/>
                     </Form.Group>
-		<Form.Group controlId="products">
-                        <Form.Label>products</Form.Label>
+		<Form.Group controlId="products" className="col-md-6 form-group">
+                        <b>Products</b>
                         <Form.Control type="text" name="products" required 
                         placeholder="products"/>
                     </Form.Group>
 
-                    <Form.Group controlId="type">
-                        <Form.Label>type</Form.Label>
+                    <Form.Group controlId="type" className="col-md-6 form-group">
+                        <b>Type</b>
                         <Form.Control as="select">
                         {this.state.deps.map(dep=>
                             <option key={dep.tid}>{dep.type}</option>)}
                         </Form.Control>
                     </Form.Group>
 
-			<Form.Group controlId="IEAL">
-                        <Form.Label>IEAL</Form.Label>
+			<Form.Group controlId="IEAL" className="col-md-6 form-group">
+                        <b>IEAL</b>
                         <Form.Control type="text" name="IEAL" required 
                         placeholder="IEAL"/>
                     </Form.Group>
 
-                    <Form.Group controlId="heads">
-                        <Form.Label>heads</Form.Label>
+                    <Form.Group controlId="heads" className="col-md-6 form-group">
+                        <b>Heads</b>
                         <Form.Control as="select">
                         {this.state.typ.map(dep=>
                             <option key={dep.id}>{dep.heads}</option>)}
                         </Form.Control>
+                    </Form.Group>
+
+                    <Form.Group controlId="description" className="col-md-6 form-group">
+                        <b>Description</b>
+                        <Form.Control as="textarea" rows="3"type="textarea" name="description" required 
+                        placeholder="description"/>
                     </Form.Group>
 
                     
@@ -297,8 +302,12 @@ render(){
                             Submit
                         </Button>
                     </Form.Group>
+                    </div>
                 </Form>
-        </center>
+
+                
+
+        </div>
       </div>
     </div>
   );

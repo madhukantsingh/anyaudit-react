@@ -68,38 +68,35 @@ render(){
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
         <h2 className="text-center mb-4">Company</h2>
-        <center>
+        
         <Form onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="name">
-                        <Form.Label>name</Form.Label>
+        <div className="row">
+                    <Form.Group controlId="name"className="col-md-6 form-group">
+                        <Form.Label>Name</Form.Label>
                         <Form.Control type="text" name="name" required 
                         placeholder="name"/>
                     </Form.Group>
 
-		   <Form.Group controlId="pan">
-                        <Form.Label>description</Form.Label>
-                        <Form.Control type="text" name="pan" required 
-                        placeholder="pan"/>
-                    </Form.Group>
+		  
 
-		   <Form.Group controlId="email">
-                        <Form.Label>location</Form.Label>
+		   <Form.Group controlId="email" className="col-md-6 form-group">
+                        <Form.Label>Location</Form.Label>
                         <Form.Control type="text" name="email" required 
                         placeholder="email"/>
                     </Form.Group>
-		<Form.Group controlId="phone">
-                        <Form.Label>products</Form.Label>
+		<Form.Group controlId="phone" className="col-md-6 form-group" >
+                        <Form.Label>Products</Form.Label>
                         <Form.Control type="text" name="phone" required 
                         placeholder="phone"/>
                     </Form.Group>
                    
-                    <Form.Group controlId="cinno">
+                    <Form.Group controlId="cinno" className="col-md-6 form-group">
                         <Form.Label>Cin No</Form.Label>
                         <Form.Control type="text" name="cinno" required 
                         placeholder="cinno"/>
                     </Form.Group>
 
-                    <Form.Group controlId="sister">
+                    <Form.Group controlId="sister" className="col-md-6 form-group">
                         <Form.Label>Sister</Form.Label>
                         <Form.Control as="select">
                         {this.state.deps.map(dep=>
@@ -107,19 +104,11 @@ render(){
                         </Form.Control>
                     </Form.Group>
 
-			{/* <Form.Group controlId="IEAL">
-                        <Form.Label>IEAL</Form.Label>
-                        <Form.Control type="text" name="IEAL" required 
-                        placeholder="IEAL"/>
+                    <Form.Group controlId="pan" className="col-md-6 form-group">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control as="textarea" rows="3" type="textarea" name="description" required 
+                        placeholder="description"/>
                     </Form.Group>
-
-                    <Form.Group controlId="heads">
-                        <Form.Label>heads</Form.Label>
-                        <Form.Control as="select">
-                        {this.state.typ.map(dep=>
-                            <option key={dep.id}>{dep.heads}</option>)}
-                        </Form.Control>
-                    </Form.Group> */}
 
                     
 
@@ -129,8 +118,9 @@ render(){
                             Submit
                         </Button>
                     </Form.Group>
+                    </div>
                 </Form>
-        </center>
+        
       </div>
     </div>
   );

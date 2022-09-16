@@ -25,7 +25,7 @@ const Uom = () => {
       <div className="py-4">
         <h1>UOM Master</h1>
         <Link className="btn btn-outline-bule" to="/users4/add">Add</Link>
-        <Link className="btn btn-right-outline-bule" to >Logout</Link>
+        {/* <Link className="btn btn-right-outline-bule" to >Logout</Link> */}
          
         <table class="table border shadow">
         
