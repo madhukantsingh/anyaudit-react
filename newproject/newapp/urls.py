@@ -13,6 +13,10 @@ urlpatterns=[
     url(r'^type/([0-9]+)$',views.TypeApi),
     url(r'^heads$',views.HeadsApi),
     url(r'^heads/([0-9]+)$',views.HeadsApi),
-    url(r'^items$',views.ItemsApi),
-    url(r'^items/([0-9]+)$',views.ItemsApi),
+    url(r'^educational$',views.EducationalApi),
+    url(r'^educational/([0-9]+)$',views.EducationalApi),
+    url(r'^networth$',views.NetworthlApi),
+    url(r'^networth/([0-9]+)$',views.NetworthlApi),
+    url(r'^persons$',views.PersonslApi),
+    url(r'^persons/([0-9]+)$',views.PersonslApi),
 ]

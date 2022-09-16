@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'newproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':  "react",
+        'NAME':  "gitproject",
         "HOST": "localhost",  
         "USER": "root",
-        "PASSWORD": "mani@12345",
+        "PASSWORD": "root@123",
         "PORT": "3306",  
     }
 }
