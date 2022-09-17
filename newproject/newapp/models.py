@@ -99,3 +99,52 @@ class Family(models.Model):
 
     class Meta:
         db_table ='family'
+
+
+class Company(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255, blank=True, null=True)
+    email = models.CharField(max_length=255, blank=True, null=True)
+    phone = models.CharField(max_length=255, blank=True, null=True)
+    pan = models.CharField(max_length=255, blank=True, null=True)
+    cinno = models.CharField(max_length=255, blank=True, null=True)
+    sister = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+       
+        db_table = 'company'
+
+class Assetstype(models.Model):
+    id = models.AutoField(primary_key=True)
+    assetstype = models.CharField(max_length=255)
+
+    class Meta:
+        
+        db_table = 'assetstype'
+
+
+class Assets(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255)
+    location = models.CharField(max_length=255)
+    typeof = models.CharField(max_length=255, blank=True, null=True)
+    area = models.CharField(max_length=255, blank=True, null=True)
+    fmv = models.IntegerField(blank=True, null=True)
+    sdv = models.CharField(max_length=255, blank=True, null=True)
+    leftb = models.CharField(max_length=255, blank=True, null=True)
+    rightb = models.CharField(max_length=255, blank=True, null=True)
+    front = models.CharField(max_length=255, blank=True, null=True)
+    back = models.CharField(max_length=255, blank=True, null=True)
+    attachment = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        
+        db_table = 'assets'
+
+class Sister(models.Model):
+    id = models.AutoField(primary_key=True)
+    sister = models.CharField(max_length=255)
+
+    class Meta:
+       
+        db_table = 'sister'
