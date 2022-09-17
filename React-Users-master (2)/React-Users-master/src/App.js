@@ -39,6 +39,7 @@ import EditFamily from "./components/users5/EditFamily";
 import EditProductsname from "./components/users6/EditProductsname";
 import EditAssets from "./components/users7/EditAssets";
 import Sidebar from "./Sidebar";
+// import Person from "./components/pages/Person";
 
 // import ViewBusiness from "./components/users1/ViewBusiness";
 function App() {
@@ -56,6 +57,7 @@ function App() {
           <Route exact path="/family" component={Family} /> 
           <Route exact path="/productname" component={Productsname} /> 
           <Route exact path="/assets" component={Assets} /> 
+          {/* <Route exact path="/person" component={Person} />  */}
           
 
           <Route exact path="/users/add" component={AddUser} />
@@ -68,8 +70,10 @@ function App() {
           <Route exact path="/users7/add" component={AddAssets} />
           
 
+          
+
           <Route exact path="/users/edit/:id" component={EditUser} />
-          {/* <Route exact path="/users1/edit/:id" component={EditBusiness} /> */}
+          <Route exact path="/users1/edit/:id" component={EditBusiness} />
           <Route exact path="/users2/edit/:id" component={EditHeads} />
           <Route exact path="/users3/edit/:id" component={EditTypes} />
           <Route exact path="/users4/edit/:id" component={EditUom} />
