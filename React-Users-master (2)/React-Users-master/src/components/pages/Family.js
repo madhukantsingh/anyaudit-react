@@ -44,7 +44,7 @@ const Family = () => {
               <tr>
                 <th scope="row">{index + 1}</th>
                 {/* <td>{user.id}</td> */}
-                <td>{user.f_name}</td>
+                <td>{user.name}</td>
                 <td>{user.defaults}</td>
                 <td>{user.u_of_measurement}</td>
                 

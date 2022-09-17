@@ -77,7 +77,7 @@ class FamilySerializer(serializers.ModelSerializer):
     class Meta:
         model = Family
         fields = ('id',
-                  'f_name',
+                  'name',
                   'defaults',
                   'u_of_measurement')
 
@@ -85,5 +85,5 @@ class UomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Uom
         fields = ('id',
-                  'family_name',
+                  'name',
                   'measure')

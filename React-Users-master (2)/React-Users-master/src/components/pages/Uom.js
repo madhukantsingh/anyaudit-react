@@ -45,7 +45,7 @@ const Uom = () => {
               <tr>
                 <th scope="row">{index + 1}</th>
                 {/* <td>{user.id}</td> */}
-                <td>{user.family_name}</td>
+                <td>{user.name}</td>
                 <td>{user.measure}</td>
                
                 <td>

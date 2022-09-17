@@ -15,7 +15,7 @@ export class AddUom extends Component{
   };
   componentDidMount(){
     // console.log("adsfadsfsaf")
-      fetch("http://localhost:8000/")
+      fetch("http://localhost:8000/family")
       .then(response=>response.json())
       .then(data=>{
           this.setState({deps:data});
@@ -30,7 +30,7 @@ export class AddUom extends Component{
   handleSubmit(event){
     console.log(event)
     event.preventDefault();
-    fetch("http://localhost:8000/",{
+    fetch("http://localhost:8000/uom",{
         method:'POST',
         headers:{
             'Accept':'application/json',
@@ -38,16 +38,9 @@ export class AddUom extends Component{
         },
         body:JSON.stringify({
             id:null,
-            familyname:event.target.familyname.value,
+            name:event.target.name.value,
             measure:event.target.measure.value
-           
-           
-          
-
-            
-
-
-        })
+          })
     })
     .then(res=>res.json())
     .then((result)=>{
@@ -69,11 +62,11 @@ render(){
         <Form onSubmit={this.handleSubmit}>
         <div className="row">
                   
-                    <Form.Group controlId="familyname" className="col-md-6 form-group">
+                    <Form.Group controlId="name" className="col-md-6 form-group">
                         <b>Family Name</b>
                         <Form.Control as="select">
                         {this.state.deps.map(dep=>
-                            <option key={dep.tid}>{dep.familyname}</option>)}
+                            <option key={dep.id}>{dep.name}</option>)}
                         </Form.Control>
                     </Form.Group>
 
