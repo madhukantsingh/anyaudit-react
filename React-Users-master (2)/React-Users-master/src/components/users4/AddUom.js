@@ -1,8 +1,7 @@
-
 import React, { Component, useEffect, useState } from "react";
 import axios from 'axios'
 import { Link, useHistory } from "react-router-dom";
-import {Modal,Button, Row, Col, Form} from 'react-bootstrap';
+import {Modal,Button, Row, Col, Form, FormLabel} from 'react-bootstrap';
 
 export class AddUom extends Component{
   constructor(props) {
@@ -15,22 +14,19 @@ export class AddUom extends Component{
   };
   componentDidMount(){
     // console.log("adsfadsfsaf")
-      fetch("http://localhost:8000/")
+      fetch("http://localhost:8000/family")
       .then(response=>response.json())
       .then(data=>{
           this.setState({deps:data});
            console.log("adsfadsfsaf,thar",data)
       });
-     
+      
   }
   
-
-
-
   handleSubmit(event){
     console.log(event)
     event.preventDefault();
-    fetch("http://localhost:8000/",{
+    fetch("http://localhost:8000/uom",{
         method:'POST',
         headers:{
             'Accept':'application/json',
@@ -38,11 +34,9 @@ export class AddUom extends Component{
         },
         body:JSON.stringify({
             id:null,
-            familyname:event.target.familyname.value,
+            name:event.target.name.value,
             measure:event.target.measure.value
-           
-           
-          
+            
 
             
 
@@ -62,27 +56,27 @@ render(){
   return (
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">Uom Master</h2>
+        <h2 className="text-center mb-4">UOM</h2>
         <div className="col-md-12">
 
            
         <Form onSubmit={this.handleSubmit}>
         <div className="row">
-                  
-                    <Form.Group controlId="familyname" className="col-md-6 form-group">
-                        <b>Family Name</b>
+
+                    <Form.Group controlId="name" className="col-md-6 form-group">
+                       <FormLabel>name</FormLabel>
                         <Form.Control as="select">
-                        {this.state.deps.map(dep=>
-                            <option key={dep.tid}>{dep.familyname}</option>)}
+                        {this.state.deps.map(uom=>
+                            <option key={uom.id}>{uom.name}</option>)}
                         </Form.Control>
                     </Form.Group>
 
 			<Form.Group controlId="measure" className="col-md-6 form-group">
-                        <b>Measure</b>
-                        <Form.Control type="text" name="measure" required 
+       <FormLabel>measure</FormLabel>
+                      <Form.Control type="text" name="measure" required 
                         placeholder="measure"/>
                     </Form.Group>
-            
+
                     <Form.Group>
                         <Button variant="primary" type="submit"
                           onClick={this.props.onHide}>
@@ -101,8 +95,5 @@ render(){
         }
 }
 
-export default AddUom;
-
-
-
+export default AddUom
 

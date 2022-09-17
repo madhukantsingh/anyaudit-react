@@ -85,7 +85,7 @@ class Products(models.Model):
 
 class Uom(models.Model):
     id=models.AutoField(primary_key=True)
-    family_name=models.CharField(max_length=45)
+    name=models.CharField(max_length=45)
     measure=models.CharField(max_length=15)
 
     class Meta:
@@ -93,7 +93,7 @@ class Uom(models.Model):
 
 class Family(models.Model):
     id=models.AutoField(primary_key=True)
-    f_name=models.CharField(max_length=45)
+    name=models.CharField(max_length=45)
     defaults=models.CharField(max_length=15)
     u_of_measurement=models.CharField(max_length=15)
 
