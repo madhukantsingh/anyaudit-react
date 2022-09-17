@@ -6,13 +6,13 @@ const AddFamily = () => {
   let history = useHistory();
   const [user, setUser] = useState({
     
-    f_name: "",
+    name: "",
     defaults: "",
     u_of_measurement:""
     
   });
 
-  const { f_name, defaults, u_of_measurement } = user;
+  const { name, defaults, u_of_measurement } = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -36,8 +36,8 @@ const AddFamily = () => {
               type="text"
              
               placeholder="Enter Your name"
-              name="f_name"
-              value={f_name}
+              name="name"
+              value={name}
               onChange={e => onInputChange(e)}
             />
           </div>

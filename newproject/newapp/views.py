@@ -402,19 +402,21 @@ def FamilyApi(request,id = 0):
             except:
                 print("tharun exception")
         else:
+           
 
             family = Family.objects.all()
+            print("asfasf",family)
          
             family_serializer = FamilySerializer(family, many=True) 
-    
+            print("asdfasfaf",family_serializer.data)
             response =  JsonResponse(family_serializer.data, safe=False)        
         return response
     elif request.method=='POST':
-        print(request,"tharun",id)
+        # print(request,"tharun",id)
         family_data=JSONParser().parse(request)
         print(family_data)
         family_serializer = FamilySerializer(data=family_data)
-
+        print(family_serializer.is_valid())
         if family_serializer.is_valid():
             family_serializer.save()
             print("tharun")
