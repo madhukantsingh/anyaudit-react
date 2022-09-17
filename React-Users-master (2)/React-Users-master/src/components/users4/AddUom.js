@@ -1,8 +1,7 @@
-
 import React, { Component, useEffect, useState } from "react";
 import axios from 'axios'
 import { Link, useHistory } from "react-router-dom";
-import {Modal,Button, Row, Col, Form} from 'react-bootstrap';
+import {Modal,Button, Row, Col, Form, FormLabel} from 'react-bootstrap';
 
 export class AddUom extends Component{
   constructor(props) {
@@ -21,12 +20,9 @@ export class AddUom extends Component{
           this.setState({deps:data});
            console.log("adsfadsfsaf,thar",data)
       });
-     
+      
   }
   
-
-
-
   handleSubmit(event){
     console.log(event)
     event.preventDefault();
@@ -55,7 +51,7 @@ render(){
   return (
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">Uom Master</h2>
+        <h2 className="text-center mb-4">UOM</h2>
         <div className="col-md-12">
 
            
@@ -66,16 +62,16 @@ render(){
                         <b>Family Name</b>
                         <Form.Control as="select">
                         {this.state.deps.map(dep=>
-                            <option key={dep.id}>{dep.name}</option>)}
+                            <option key={dep.id}>{dep.name}-{dep.u_of_measurement}</option>)}
                         </Form.Control>
                     </Form.Group>
 
 			<Form.Group controlId="measure" className="col-md-6 form-group">
-                        <b>Measure</b>
-                        <Form.Control type="text" name="measure" required 
+       <FormLabel>measure</FormLabel>
+                      <Form.Control type="text" name="measure" required 
                         placeholder="measure"/>
                     </Form.Group>
-            
+
                     <Form.Group>
                         <Button variant="primary" type="submit"
                           onClick={this.props.onHide}>
@@ -94,8 +90,5 @@ render(){
         }
 }
 
-export default AddUom;
-
-
-
+export default AddUom
 
