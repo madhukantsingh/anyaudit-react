@@ -8,8 +8,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
-from newapp.models import Bussiness,Type,Heads,Educational,Networth,Persons,Products,Family, Uom
-from newapp.serializers import BussinessSerializer,TypeSerializer,HeadsSerializer,EducationalSerializer,NetworthSerializer,PersonsSerializer,ProductsSerializer,FamilySerializer,UomSerializer
+from newapp.models import Bussiness,Type,Heads,Educational,Networth,Persons,Products,Family, Uom,Company,Assets,Sister,Assetstype
+from newapp.serializers import BussinessSerializer,TypeSerializer,HeadsSerializer,EducationalSerializer,NetworthSerializer,PersonsSerializer,ProductsSerializer,FamilySerializer,UomSerializer,AssetstypeSerializer,CompanySerializer,SisterSerializer,AssetsSerializer
 
 from django.core.files.storage import default_storage
 
@@ -402,19 +402,21 @@ def FamilyApi(request,id = 0):
             except:
                 print("tharun exception")
         else:
+           
 
             family = Family.objects.all()
+            print("asfasf",family)
          
             family_serializer = FamilySerializer(family, many=True) 
-    
+            print("asdfasfaf",family_serializer.data)
             response =  JsonResponse(family_serializer.data, safe=False)        
         return response
     elif request.method=='POST':
-        print(request,"tharun",id)
+        # print(request,"tharun",id)
         family_data=JSONParser().parse(request)
         print(family_data)
         family_serializer = FamilySerializer(data=family_data)
-
+        print(family_serializer.is_valid())
         if family_serializer.is_valid():
             family_serializer.save()
             print("tharun")
@@ -495,3 +497,230 @@ def UomApi(request,id = 0):
         uom.delete()
         return JsonResponse("Deleted Succeffully!!", safe=False)
 
+@csrf_exempt
+def SisterApi(request,id = 0):
+    if request.method=='GET':
+        print(request,"ramya",id)
+        if id:
+            try:
+                print(id, request,"intry")
+                sister=Sister.objects.get(pk=id)
+                print(id, request,"intry")
+                print(sister)
+                sister_serializer=SisterSerializer(sister,many=False)
+                #print(business_serializer.data,"business_data")
+                response =  JsonResponse(sister_serializer.data, safe=False) 
+                print(response)
+            except:
+                print("ramya exception")
+        else:
+
+            sister = Sister.objects.all()
+            sister_serializer = SisterSerializer(sister, many=True)
+            print(sister_serializer.data,"company_data")
+            response =  JsonResponse(sister_serializer.data, safe=False)        
+        return response
+    elif request.method=='POST':
+        print(request,"ramya",id)
+        sister_data=JSONParser().parse(request)
+        print(sister_data)
+        sister_serializer = SisterSerializer(data=sister_data)
+        print("ramya",sister_serializer)
+        print(sister_serializer.is_valid())
+        if sister_serializer.is_valid():
+            sister_serializer.save()
+            print("ramya")
+            response=JsonResponse("Added Successfully!!" , safe=False)
+            print(response)
+            return response
+        return JsonResponse("Failed.",safe=False)
+
+    elif request.method=='PUT':
+        sister_data = JSONParser().parse(request)
+        sister=Sister.objects.get(id=sister_data['id'])
+        sister_serializer=SisterSerializer(sister,data=sister_data)
+        print("ramya",sister_serializer)
+        print(sister_serializer.is_valid())
+        if sister_serializer.is_valid():
+            sister_serializer.save()
+            return JsonResponse("Updated Successfully!!", safe=False)
+        return JsonResponse("Failed to Update.", safe=False)
+
+    elif request.method=='DELETE':
+        print(id,"this is id")
+        sister=Sister.objects.get(id=id)
+        sister.delete()
+        return JsonResponse("Deleted Succeffully!!", safe=False)
+
+
+    
+
+@csrf_exempt
+def AssetstypeApi(request,id = 0):
+    if request.method=='GET':
+        print(request,"ramya",id)
+        if id:
+            try:
+                print(id, request,"intry")
+                assetstype=Assetstype.objects.get(pk=id)
+                print(id, request,"intry")
+                print(assetstype)
+                assetstype_serializer=AssetstypeSerializer(assetstype,many=False)
+                #print(business_serializer.data,"business_data")
+                response =  JsonResponse(assetstype_serializer.data, safe=False) 
+                print(response)
+            except:
+                print("ramya exception")
+        else:
+
+            assetstype = Assetstype.objects.all()
+            assetstype_serializer = AssetstypeSerializer(assetstype, many=True)
+            print(assetstype_serializer.data,"assetstype_data")
+            response =  JsonResponse(assetstype_serializer.data, safe=False)        
+        return response
+    elif request.method=='POST':
+        print(request,"tharun",id)
+        assetstype_data=JSONParser().parse(request)
+        print(assetstype_data)
+        assetstype_serializer = AssetstypeSerializer(data=assetstype_data)
+        print("tharun",assetstype_serializer)
+        print(assetstype_serializer.is_valid())
+        if assetstype_serializer.is_valid():
+            assetstype_serializer.save()
+            print("tharun")
+            response=JsonResponse("Added Successfully!!" , safe=False)
+            print(response)
+            return response
+        return JsonResponse("Failed.",safe=False)
+
+
+    elif request.method=='PUT':
+        assetstype_data = JSONParser().parse(request)
+        assetstype=Assetstype.objects.get(id=assetstype_data['id'])
+        assetstype_serializer=AssetstypeSerializer(assetstype,data=assetstype_data)
+        print("tharun",assetstype_serializer)
+        print(assetstype_serializer.is_valid())
+        if assetstype_serializer.is_valid():
+            assetstype_serializer.save()
+            return JsonResponse("Updated Successfully!!", safe=False)
+        return JsonResponse("Failed to Update.", safe=False)
+
+    elif request.method=='DELETE':
+        print(id,"this is id")
+        assetstype=Assetstype.objects.get(id=id)
+        assetstype.delete()
+        return JsonResponse("Deleted Succeffully!!", safe=False)
+
+
+@csrf_exempt
+def AssetsApi(request,id = 0):
+    if request.method=='GET':
+        print(request,"tharun",id)
+        if id:
+            try:
+                print(id, request,"intry")
+                assets=Assets.objects.get(pk=id)
+                print(id, request,"intry")
+                print(assets)
+                assets_serializer=AssetsSerializer(assets,many=False)
+                #print(business_serializer.data,"business_data")
+                response =  JsonResponse(assets_serializer.data, safe=False) 
+            except:
+                print("tharun exception")
+        else:
+
+            assets = Assets.objects.all()
+            print(assets)
+            assets_serializer = AssetsSerializer(assets, many=True) 
+            print(assets_serializer.data,"assets_data")
+            response =  JsonResponse(assets_serializer.data, safe=False)        
+        return response
+
+
+    elif request.method=='POST':
+        print(request,"tharun",id)
+        assets_data=JSONParser().parse(request)
+        print(assets_data)
+        assets_serializer = AssetsSerializer(data=assets_data)
+        print("tharun",assets_serializer)
+        print(assets_serializer.is_valid())
+        if assets_serializer.is_valid():
+            assets_serializer.save()
+            print("tharun")
+            response=JsonResponse("Added Successfully!!" , safe=False)
+            print(response)
+            return response
+        return JsonResponse("Failed.",safe=False)
+
+    elif request.method=='PUT':
+        assets_data = JSONParser().parse(request)
+        assets=Assets.objects.get(id=assets_data['id'])
+        assets_serializer=AssetsSerializer(assets,data=assets_data)
+        print("tharun",assets_serializer)
+        print(assets_serializer.is_valid())
+        if assets_serializer.is_valid():
+            assets_serializer.save()
+            return JsonResponse("Updated Successfully!!", safe=False)
+        return JsonResponse("Failed to Update.", safe=False)
+
+    elif request.method=='DELETE':
+        print(id,"this is id")
+        assets=Assets.objects.get(id=id)
+        assets.delete()
+        return JsonResponse("Deleted Succeffully!!", safe=False)
+@csrf_exempt
+def CompanyApi(request,id = 0):
+    if request.method=='GET':
+        print(request,"tharun",id)
+        if id:
+            try:
+                print(id, request,"intry")
+                company=Company.objects.get(pk=id)
+                print(id, request,"intry")
+                print(company)
+                company_serializer=CompanySerializer(company,many=False)
+                #print(business_serializer.data,"business_data")
+                response =  JsonResponse(company_serializer.data, safe=False) 
+            except:
+                print("tharun exception")
+        else:
+
+            company = Company.objects.all()
+            print(company)
+            company_serializer = CompanySerializer(company, many=True) 
+            print(company_serializer.data,"company_data")
+            response =  JsonResponse(company_serializer.data, safe=False)        
+        return response
+
+
+    elif request.method=='POST':
+        print(request,"tharun",id)
+        company_data=JSONParser().parse(request)
+        print(company_data)
+        company_serializer = CompanySerializer(data=company_data)
+        print("tharun",company_serializer)
+        print(company_serializer.is_valid())
+        if company_serializer.is_valid():
+            company_serializer.save()
+            print("tharun")
+            response=JsonResponse("Added Successfully!!" , safe=False)
+            print(response)
+            return response
+        return JsonResponse("Failed.",safe=False)
+
+    elif request.method=='PUT':
+        company_data = JSONParser().parse(request)
+        company=Company.objects.get(id=company_data['id'])
+        company_serializer=CompanySerializer(company,data=company_data)
+        print("tharun",company_serializer)
+        print(company_serializer.is_valid())
+        if company_serializer.is_valid():
+            company_serializer.save()
+            return JsonResponse("Updated Successfully!!", safe=False)
+        return JsonResponse("Failed to Update.", safe=False)
+
+    elif request.method=='DELETE':
+        print(id,"this is id")
+        company=Company.objects.get(id=id)
+        company.delete()
+        return JsonResponse("Deleted Succeffully!!", safe=False)

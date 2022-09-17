@@ -36,12 +36,16 @@ export class AddUom extends Component{
             id:null,
             name:event.target.name.value,
             measure:event.target.measure.value
+<<<<<<< HEAD
             
 
             
 
 
         })
+=======
+          })
+>>>>>>> 5e2ed852b4cc1a631bd7b5c99b6329aa0704cfef
     })
     .then(res=>res.json())
     .then((result)=>{
@@ -62,12 +66,12 @@ render(){
            
         <Form onSubmit={this.handleSubmit}>
         <div className="row">
-
+                  
                     <Form.Group controlId="name" className="col-md-6 form-group">
-                       <FormLabel>name</FormLabel>
+                        <b>Family Name</b>
                         <Form.Control as="select">
-                        {this.state.deps.map(uom=>
-                            <option key={uom.id}>{uom.name}</option>)}
+                        {this.state.deps.map(dep=>
+                            <option key={dep.id}>{dep.name}</option>)}
                         </Form.Control>
                     </Form.Group>
 
