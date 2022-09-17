@@ -7460,6 +7460,13 @@
   dependencies:
     "minimist" "0.0.8"
 
+"model@^6.0.1":
+  "integrity" "sha512-khQLGVbt7qvMV7/lp990+CaLWJZC6KxtV8y9iJ7Qlj3+82JtJIZfRacVIC8YjTUTHFbUn91FOxWdhRGjRVjdsQ=="
+  "resolved" "https://registry.npmjs.org/model/-/model-6.0.1.tgz"
+  "version" "6.0.1"
+  dependencies:
+    "utilities" "1.0.x"
+
 "morgan@^1.9.1":
   "integrity" "sha512-AbegBVI4sh6El+1gNwvD5YIck7nSA36weD7xvIxG4in80j/UoK8AEGaWnnz8v1GxonMCltmlNs5ZKbGvl9b1XQ=="
   "resolved" "https://registry.npmjs.org/morgan/-/morgan-1.10.0.tgz"
@@ -11450,6 +11457,11 @@
   "integrity" "sha1-ihagXURWV6Oupe7MWxKk+lN5dyw= sha512-Z0DbgELS9/L/75wZbro8xAnT50pBVFQZ+hUEueGDU5FN51YSCYM+jdxsfCiHjwNP/4LCDD0i/graKpeBnOXKRA=="
   "resolved" "https://registry.npmjs.org/utila/-/utila-0.4.0.tgz"
   "version" "0.4.0"
+
+"utilities@1.0.x":
+  "integrity" "sha512-OYHwdtji3y636osVdsuLdXT4swOAAEwgznGZey9cgGtQma31eLsZ9NzEarQARcIQAv81EBZrCIKn6nIDmv9cZw=="
+  "resolved" "https://registry.npmjs.org/utilities/-/utilities-1.0.6.tgz"
+  "version" "1.0.6"
 
 "utils-merge@1.0.1":
   "integrity" "sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM= sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA=="
