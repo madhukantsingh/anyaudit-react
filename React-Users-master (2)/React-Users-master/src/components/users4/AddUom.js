@@ -36,16 +36,7 @@ export class AddUom extends Component{
             id:null,
             name:event.target.name.value,
             measure:event.target.measure.value
-<<<<<<< HEAD
-            
-
-            
-
-
-        })
-=======
           })
->>>>>>> 5e2ed852b4cc1a631bd7b5c99b6329aa0704cfef
     })
     .then(res=>res.json())
     .then((result)=>{
@@ -71,7 +62,7 @@ render(){
                         <b>Family Name</b>
                         <Form.Control as="select">
                         {this.state.deps.map(dep=>
-                            <option key={dep.id}>{dep.name}</option>)}
+                            <option key={dep.id}>{dep.name}-{dep.u_of_measurement}</option>)}
                         </Form.Control>
                     </Form.Group>
 
