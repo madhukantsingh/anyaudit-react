@@ -62,6 +62,12 @@ const Navbar = () => {
               <h6> Assets</h6>
               </NavLink>
             </li>
+
+            <li className="nav-item">
+              <NavLink className="nav-link" exact to="/assetstype">
+              <h6> Assetstype</h6>
+              </NavLink>
+            </li>
             <li className="nav-item">
               <NavLink className="nav-link" exact to="/person">
               <h6> Person</h6>
