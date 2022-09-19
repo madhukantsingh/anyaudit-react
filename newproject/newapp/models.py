@@ -127,7 +127,7 @@ class Assets(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
-    typeof = models.CharField(max_length=255, blank=True, null=True)
+    assetstype = models.CharField(max_length=255, blank=True, null=True)
     area = models.CharField(max_length=255, blank=True, null=True)
     fmv = models.IntegerField(blank=True, null=True)
     sdv = models.CharField(max_length=255, blank=True, null=True)

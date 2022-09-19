@@ -10,12 +10,12 @@ const Assets = () => {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("http://127.0.0.1:8000/");
+    const result = await axios.get("http://127.0.0.1:8000/assets");
     setUser(result.data.reverse());
   };
 
   const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000//${id}`);
+    await axios.delete(`http://127.0.0.1:8000/assets/${id}`);
     loadUsers();
   };
 
@@ -46,11 +46,10 @@ const Assets = () => {
           <tbody>
             {users.map((user, index) => (
               <tr>
-                <th scope="row">{index + 1}</th>
-                <td>{user.id}</td>
+                <th scope="row">{index + 1}</th>    
                 <td>{user.name}</td>
                 <td>{user.location}</td>
-                <td>{user.type}</td>
+                <td>{user.assetstype}</td>
                 <td>{user.area}</td>
                 <td>{user.fmv}</td>
                 <td>{user.sdv}</td>

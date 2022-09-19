@@ -31,19 +31,22 @@ import AddFamily from "./components/users5/AddFamily";
 import Productsname from "./components/pages/Productsname";
 import AddProductsname from "./components/users6/AddProductsname";
 import AddAssets from "./components/users7/AddAssets";
+import AddAssetstype from "./components/users8/AddAssetstype";
 import Assets from "./components/pages/Assets";
+import Assetstype from "./components/pages/Assetstype";
 import EditHeads from "./components/users2/EditHeads";
 import EditTypes from "./components/users3/EditTypes";
 import EditUom from "./components/users4/EditUom";
 import EditFamily from "./components/users5/EditFamily";
 import EditProductsname from "./components/users6/EditProductsname";
 import EditAssets from "./components/users7/EditAssets";
+import EditAssetstype from "./components/users8/EditAssetstype";
 import Sidebar from "./Sidebar";
 import Sister from "./components/pages/Sister";
 import AddSister from "./components/users8/AddSister";
 // import Person from "./components/pages/Person";
 
-// import ViewBusiness from "./components/users1/ViewBusiness";
+import ViewBusiness from "./components/users1/ViewBusiness";
 function App() {
   return (
     <Router>
@@ -59,6 +62,7 @@ function App() {
           <Route exact path="/family" component={Family} /> 
           <Route exact path="/productname" component={Productsname} /> 
           <Route exact path="/assets" component={Assets} /> 
+          <Route exact path="/assetstype" component={Assetstype} /> 
           {/* <Route exact path="/person" component={Person} />  */}
           <Route exact path="/sister" component={Sister} /> 
           
@@ -71,7 +75,11 @@ function App() {
           <Route exact path="/users5/add" component={AddFamily} />
           <Route exact path="/users6/add" component={AddProductsname} />
           <Route exact path="/users7/add" component={AddAssets} />
+<<<<<<< HEAD
           <Route exact path="/users8/add" component={AddSister} />
+=======
+          <Route exact path="/users8/add" component={AddAssetstype} />
+>>>>>>> 1c306d8c3217e69ff9bac11a392bc13ca46fce70
           
 
           
@@ -84,10 +92,11 @@ function App() {
           <Route exact path="/users5/edit/:id" component={EditFamily} />
           <Route exact path="/users6/edit/:id" component={EditProductsname} />
           <Route exact path="/users7/edit/:id" component={EditAssets} />
+          <Route exact path="/users8/edit/:id" component={EditAssetstype} />
 
 
           <Route exact path="/users/:id" component={User} />
-          {/* <Route exact path="/users1/:id" component={ViewBusiness} /> */}
+          <Route exact path="/users1/:id" component={ViewBusiness} />
 
           <Route component={NotFound} />
         </Switch>

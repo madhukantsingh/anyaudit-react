@@ -14,7 +14,7 @@ export class AddProductsname extends Component{
   };
   componentDidMount(){
     // console.log("adsfadsfsaf")
-      fetch("http://localhost:8000/")
+      fetch("http://localhost:8000/uom")
       .then(response=>response.json())
       .then(data=>{
           this.setState({deps:data});
@@ -29,7 +29,7 @@ export class AddProductsname extends Component{
   handleSubmit(event){
     console.log(event)
     event.preventDefault();
-    fetch("http://localhost:8000/",{
+    fetch("http://localhost:8000/products",{
         method:'POST',
         headers:{
             'Accept':'application/json',
@@ -37,13 +37,10 @@ export class AddProductsname extends Component{
         },
         body:JSON.stringify({
             id:null,
-            name:event.target.name.value,
-            uom:event.target.uom.value,
+            product_name:event.target.product_name.value,
+            UOM:event.target.UOM.value,
            
            
-          
-
-            
 
 
         })
@@ -67,7 +64,7 @@ render(){
            
         <Form onSubmit={this.handleSubmit}>
         <div className="row">
-                    <Form.Group controlId="name" className="col-md-6 form-group">
+                    <Form.Group controlId="product_name" className="col-md-6 form-group">
                         <b>Name</b>
                         <Form.Control type="text" name="name" required 
                         placeholder="name"/>
@@ -75,11 +72,11 @@ render(){
 
 		  
 
-                    <Form.Group controlId="uom" className="col-md-6 form-group">
+                    <Form.Group controlId="UOM" className="col-md-6 form-group">
                         <b>Uom</b>
                         <Form.Control as="select">
                         {this.state.deps.map(dep=>
-                            <option key={dep.tid}>{dep.uom}</option>)}
+                            <option key={dep.id}>{dep.name}</option>)}
                         </Form.Control>
                     </Form.Group>
 
