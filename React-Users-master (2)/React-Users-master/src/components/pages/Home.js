@@ -31,7 +31,7 @@ const Home = () => {
         
           <thead class="thead-dark">
             <tr>
-              <th scope="col">ID</th>
+            <th scope="col">S No</th>
               <th scope="col">Name</th>
               <th scope="col">Pan</th>
               <th scope="col">Email</th>
@@ -48,7 +48,7 @@ const Home = () => {
             {users.map((user, index) => (
               <tr>
                 <th scope="row">{index + 1}</th>
-                <td>{user.id}</td>
+                
                 <td>{user.name}</td>
                 <td>{user.pan}</td>
                 <td>{user.email}</td>

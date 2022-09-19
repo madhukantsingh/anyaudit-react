@@ -48,9 +48,9 @@ const Productsname = () => {
                 <td>{user.UOM}</td>
                 
                 <td>
-                  {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-primary mr-2" to={`/users6/${user.id}`}>
                     View
-                  </Link> */}
+                  </Link>
                   <Link
                     class="btn btn-outline-primary mr-2"
                     to={`/users/edit/${user.id}`}

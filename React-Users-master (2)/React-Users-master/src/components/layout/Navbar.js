@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className="sidenavbar navbar-expand navbar-dark bg-primary">
       <div className="container">
         <Link className="navbar-brand" href="/">
-         <h2 style={{color: "darkgreen    "}}> AnyAudit</h2>
+         <h2 style={{color: "success "}}> AnyAudit</h2>
         </Link>
         <button
           className="navbar-toggler"

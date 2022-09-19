@@ -45,12 +45,12 @@ const Heads = () => {
                 <td>{user.heads}</td>
                 
                 <td>
-                  {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-primary mr-2" to={`/users2/${user.id}`}>
                     View
-                  </Link> */}
+                  </Link>
                   <Link
                     class="btn btn-outline-primary mr-2"
-                    to={`/users/edit/${user.id}`}
+                    to={`/users2/edit/${user.id}`}
                   >
                     Edit
                   </Link>

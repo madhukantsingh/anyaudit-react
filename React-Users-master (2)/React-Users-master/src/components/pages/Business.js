@@ -24,7 +24,7 @@ const Business = () => {
        
       <div className="py-4">
         <h1>Business</h1>
-        <Link className="btn btn-success" to="/users1/add">Add</Link>
+        <Link className="btn btn-success" to="/users1/add">Add Business</Link>
        
          
         <table class="table border shadow">

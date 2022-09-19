@@ -49,12 +49,12 @@ const Family = () => {
                 <td>{user.u_of_measurement}</td>
                 
                 <td>
-                  {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-primary mr-2" to={`/users5/${user.id}`}>
                     View
-                  </Link> */}
+                  </Link>
                   <Link
                     class="btn btn-outline-primary mr-2"
-                    to={`/users5/edit/${user.id}`}
+                    to={`/users5/edit/${user.id}`}  
                   >
                     Edit
                   </Link>
