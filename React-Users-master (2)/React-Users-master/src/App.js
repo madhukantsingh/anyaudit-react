@@ -39,6 +39,8 @@ import EditFamily from "./components/users5/EditFamily";
 import EditProductsname from "./components/users6/EditProductsname";
 import EditAssets from "./components/users7/EditAssets";
 import Sidebar from "./Sidebar";
+import Sister from "./components/pages/Sister";
+import AddSister from "./components/users8/AddSister";
 // import Person from "./components/pages/Person";
 
 // import ViewBusiness from "./components/users1/ViewBusiness";
@@ -58,6 +60,7 @@ function App() {
           <Route exact path="/productname" component={Productsname} /> 
           <Route exact path="/assets" component={Assets} /> 
           {/* <Route exact path="/person" component={Person} />  */}
+          <Route exact path="/sister" component={Sister} /> 
           
 
           <Route exact path="/users/add" component={AddUser} />
@@ -68,6 +71,7 @@ function App() {
           <Route exact path="/users5/add" component={AddFamily} />
           <Route exact path="/users6/add" component={AddProductsname} />
           <Route exact path="/users7/add" component={AddAssets} />
+          <Route exact path="/users8/add" component={AddSister} />
           
 
           

@@ -36,6 +36,8 @@ const Home = () => {
               <th scope="col">Pan</th>
               <th scope="col">Email</th>
               <th scope="col">Phone</th>
+              <th scope="col">Sister</th>
+
               <th scope="col">Cin No</th>
 
 
@@ -51,6 +53,7 @@ const Home = () => {
                 <td>{user.pan}</td>
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
+                <td>{user.sister}</td>
                 <td>{user.cinno}</td>
 
                 <td>
