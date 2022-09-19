@@ -75,12 +75,8 @@ function App() {
           <Route exact path="/users5/add" component={AddFamily} />
           <Route exact path="/users6/add" component={AddProductsname} />
           <Route exact path="/users7/add" component={AddAssets} />
-<<<<<<< HEAD
-          <Route exact path="/users8/add" component={AddSister} />
-=======
+          <Route exact path="/users9/add" component={AddSister} />
           <Route exact path="/users8/add" component={AddAssetstype} />
->>>>>>> 1c306d8c3217e69ff9bac11a392bc13ca46fce70
-          
 
           
 
