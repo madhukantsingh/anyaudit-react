@@ -48,14 +48,7 @@ export class AddBusiness extends Component{
             products:event.target.products.value,
             type:event.target.type.value,
             IEAL:event.target.IEAL.value,
-            heads:event.target.heads.value
-           
-          
-
-            
-
-
-        })
+            heads:event.target.heads.value})
     })
     .then(res=>res.json())
     .then((result)=>{

@@ -60,7 +60,7 @@ const Business = () => {
                 
 
                 <td>
-                  <Link class="btn btn-dark mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-dark mr-2" to={`/users1/${user.id}`}>
                     View
                   </Link>
                   <Link

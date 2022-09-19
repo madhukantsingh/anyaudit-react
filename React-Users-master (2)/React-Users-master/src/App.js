@@ -41,7 +41,7 @@ import EditAssets from "./components/users7/EditAssets";
 import Sidebar from "./Sidebar";
 // import Person from "./components/pages/Person";
 
-// import ViewBusiness from "./components/users1/ViewBusiness";
+import ViewBusiness from "./components/users1/ViewBusiness";
 function App() {
   return (
     <Router>
@@ -83,7 +83,7 @@ function App() {
 
 
           <Route exact path="/users/:id" component={User} />
-          {/* <Route exact path="/users1/:id" component={ViewBusiness} /> */}
+          <Route exact path="/users1/:id" component={ViewBusiness} />
 
           <Route component={NotFound} />
         </Switch>
