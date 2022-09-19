@@ -33,7 +33,7 @@ const Business = () => {
             <tr>
             <th scope="col">S No</th>
             
-            <th scope="col">ID</th>
+            
               <th scope="col">Name</th>
               <th scope="col">description</th>
               <th scope="col">location</th>
@@ -50,7 +50,6 @@ const Business = () => {
             {users.map((user, index) => (
               <tr>
                 <th scope="row">{index + 1}</th>
-                <td>{user.id}</td>
                 
                 <td>{user.name}</td>
                 <td>{user.description}</td>

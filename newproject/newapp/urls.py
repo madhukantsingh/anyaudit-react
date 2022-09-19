@@ -6,6 +6,7 @@ from django.conf import settings
 from django.urls import re_path as url
 
 
+
 urlpatterns=[
     url(r'^business$',views.BusinessApi),
     url(r'^business/([0-9]+)$',views.BusinessApi),
@@ -25,4 +26,13 @@ urlpatterns=[
     url(r'^family/([0-9]+)$',views.FamilyApi),
     url(r'^uom$',views.UomApi),
     url(r'^uom/([0-9]+)$',views.UomApi),
-]
+    url(r'^company$',views.CompanyApi),
+    url(r'^company/([0-9]+)$',views.CompanyApi),
+    url(r'^assetstype$',views.AssetstypeApi),
+    url(r'^assetstype/([0-9]+)$',views.AssetstypeApi),
+    url(r'^assets$',views.AssetsApi),
+    url(r'^assets/([0-9]+)$',views.AssetsApi),
+    url(r'^sister$',views.SisterApi),
+    url(r'^sister/([0-9]+)$',views.SisterApi),
+    url(r'^SaveFile$', views.SaveFile)
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

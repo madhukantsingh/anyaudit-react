@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from newapp.models import Bussiness,Type,Heads,Educational,Networth,Persons,Products,Family,Uom
+from newapp.models import Bussiness,Type,Heads,Educational,Networth,Persons,Products,Family,Uom,Company,Assets,Assetstype,Sister
 
 class BussinessSerializer(serializers.ModelSerializer):
     class Meta:
@@ -87,3 +87,45 @@ class UomSerializer(serializers.ModelSerializer):
         fields = ('id',
                   'name',
                   'measure')
+
+class CompanySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Company
+        fields = ('id',
+                  'name',
+                  'email',
+                  'phone',                  
+                  'pan',
+                  'cinno',
+                  'sister')
+
+class AssetstypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Assetstype
+        fields = ('id',
+                  'assetstype'
+                  )                  
+
+class AssetsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Assets
+        fields = ('id',
+                  'name',
+                  'location',
+                  'assetstype',                  
+                  'area',
+                  'fmv',
+                  'sdv',
+                  'leftb',
+                  'rightb',
+                  'front',                  
+                  'back',
+                  'attachment'
+                  )
+
+class SisterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sister
+        fields = ('id',
+                  'sister'
+                  )
