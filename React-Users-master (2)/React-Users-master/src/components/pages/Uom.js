@@ -54,7 +54,7 @@ const Uom = () => {
                   </Link> */}
                   <Link
                     class="btn btn-outline-primary mr-2"
-                    to={`/users/edit/${user.id}`}
+                    to={`/users4/edit/${user.id}`}
                   >
                     Edit
                   </Link>

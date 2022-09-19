@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
+import {Modal,Button, Row, Col, Form} from 'react-bootstrap';
 
 const EditUom = () => {
   let history = useHistory();
   const { id } = useParams();
   const [user, setUser] = useState({
     
-    familyname: "",
+    name: "",
     measure:""
   });
 
-  const { measure } = user;
+  const {name, measure } = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
+  
   };
 
   useEffect(() => {
@@ -22,12 +24,12 @@ const EditUom = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://127.0.0.1:8000/users/${id}`, user);
+    await axios.put(`http://127.0.0.1:8000/uom/${id}`, user);
     history.push("/");
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://127.0.0.1:8000/users/${id}`);
+    const result = await axios.get(`http://127.0.0.1:8000/uom/${id}`);
     setUser(result.data);
   };
   return (
@@ -38,12 +40,17 @@ const EditUom = () => {
         <div className="form-group">
             <b>Family Name:</b>&nbsp;
             
-      <select>
+      {/* <select>
         <option value="name">Family Names Here</option>
-        <option value="f">f</option>
-        <option value="m">M</option>
+        <option value={name}>f</option>
+      
       </select>
-    
+     */}
+
+<Form.Control as="select">
+                        {this.state.deps.map(dep=>
+                          <option key={dep.id}>{dep.name}-{dep.u_of_measurement}</option>)}
+                        </Form.Control>
           </div>
           <div className="form-group">&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp; <b>Measure:</b>&nbsp;
