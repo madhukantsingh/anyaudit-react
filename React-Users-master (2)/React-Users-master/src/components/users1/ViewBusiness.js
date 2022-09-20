@@ -14,6 +14,8 @@ const User = () => {
     heads: ""
 
   });
+
+  
   const { id } = useParams();
   useEffect(() => {
     loadUser();
@@ -27,7 +29,7 @@ const User = () => {
       <Link className="btn btn-primary" to="/">
         back to Home
       </Link>
-      <h1 className="display-4">User Id: {id}</h1>
+      {/* <h1 className="display-4">User Id: {id}</h1> */}
       <hr />
       <ul className="list-group w-50">
         <li className="list-group-item">name: {user.name}</li>

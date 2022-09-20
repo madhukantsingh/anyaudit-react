@@ -24,7 +24,7 @@ const ViewProductsname = () => {
       <Link className="btn btn-primary" to="/family">
         Back to Family
       </Link>
-      <div className="display-4">Family Id: {id}</div>
+      {/* <div className="display-4">Family Id: {id}</div> */}
       <hr />
       <ul className="list-group w-50">
         <li className="list-group-item">Name: {user.name}</li>

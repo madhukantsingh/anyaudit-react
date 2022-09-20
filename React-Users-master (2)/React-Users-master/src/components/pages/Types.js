@@ -14,8 +14,8 @@ const Types = () => {
     setUser(result.data.reverse());
   };
 
-  const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000/type/${id}`);
+  const deleteUser = async tid => {
+    await axios.delete(`http://127.0.0.1:8000/type/${tid}`);
     loadUsers();
   };
 
