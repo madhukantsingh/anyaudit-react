@@ -22,7 +22,7 @@ const ViewSister = () => {
       <Link className="btn btn-primary" to="/sister">
         back to Sister
       </Link>
-      <h6 className="display-4">Sister Id: {id}</h6>
+      {/* <h6 className="display-4">Sister Id: {id}</h6> */}
       <hr />
       <ul className="list-group w-50">
         <li className="list-group-item">name: {user.sister}</li>
