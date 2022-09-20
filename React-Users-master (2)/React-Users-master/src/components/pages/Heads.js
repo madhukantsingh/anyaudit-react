@@ -32,13 +32,13 @@ const Heads = () => {
        
       <div className="py-4">
         <h1>Heads Form</h1>
-        <Link className="btn btn-outline-bule" to="/users2/add">Add</Link>
+        <Link className="btn btn-success" to="/users2/add">Add Heads</Link>
          
         <table class="table border shadow">
         
           <thead class="thead-dark">
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">S No</th>
               <th scope="col">Name Of The Heads</th>
               
 
@@ -53,11 +53,11 @@ const Heads = () => {
                 <td>{user.heads}</td>
                 
                 <td>
-                  <Link class="btn btn-primary mr-2" to={`/users2/${user.id}`}>
+                  <Link class="btn btn-dark mr-2" to={`/users2/${user.id}`}>
                     View
                   </Link>
                   <Link
-                    class="btn btn-outline-primary mr-2"
+                    class="btn btn-outline-warning mr-2"
                     to={`/users2/edit/${user.id}`}
                   >
                     Edit

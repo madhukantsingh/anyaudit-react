@@ -24,13 +24,13 @@ const Assets = () => {
        
       <div className="py-4">
         <h1> Assets page</h1>
-        <Link className="btn btn-outline-bule" to="/users7/add">Add</Link>
+        <Link className="btn btn-success" to="/users7/add">Add Assets</Link>
          
         <table class="table border shadow">
         
           <thead class="thead-dark">
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">S No</th>
               <th scope="col">Name</th>
               <th scope="col">Location</th>
               <th scope="col">Type</th>
@@ -56,11 +56,11 @@ const Assets = () => {
                 <td>{user.attactment}</td>
                 
                 <td>
-                  {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-dark mr-2" to={`/users/${user.id}`}>
                     View
-                  </Link> */}
+                  </Link>
                   <Link
-                    class="btn btn-outline-primary mr-2"
+                    class="btn btn-outline-warning mr-2"
                     to={`/users/edit/${user.id}`}
                   >
                     Edit
