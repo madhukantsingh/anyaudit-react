@@ -5,7 +5,7 @@ import axios from "axios";
 const ViewTypes = () => {
   const [user, setUser] = useState({
     id: "",
-    type: ""
+    heads: ""
    
 
   });
@@ -22,7 +22,7 @@ const ViewTypes = () => {
       <Link className="btn btn-primary" to="/types">
         Back to Types
       </Link>
-      <div className="display-4">Type Id: {id}</div>
+      {/* <div className="display-4">type Id: {id}</div> */}
       <hr />
       <ul className="list-group w-50">
         <li className="list-group-item">Type Name: {user.type}</li>

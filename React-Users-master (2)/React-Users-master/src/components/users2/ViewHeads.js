@@ -22,7 +22,7 @@ const ViewHeads = () => {
       <Link className="btn btn-primary" to="/heads">
         Back to Heads
       </Link>
-      <div className="display-4">Heads Id: {id}</div>
+      {/* <div className="display-4">Heads Id: {id}</div> */}
       <hr />
       <ul className="list-group w-50">
         <li className="list-group-item">Heads Name: {user.heads}</li>
