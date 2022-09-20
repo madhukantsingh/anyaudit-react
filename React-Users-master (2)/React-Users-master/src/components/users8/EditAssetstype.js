@@ -11,7 +11,7 @@ const EditAssetstype = () => {
    
   });
 
-  const {  type } = user;
+  const {  assetstype } = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -22,8 +22,16 @@ const EditAssetstype = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://localhost:8000/assetstype/${id}`, user);
-    history.push("/");
+    await axios.put(`http://localhost:8000/assetstype/${id}`, user)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Updated Sucessfully');
+    });
+    history.push("/assetstype");
   };
 
   const loadUser = async () => {
@@ -43,8 +51,8 @@ const EditAssetstype = () => {
               type="text"
               
               placeholder="Enter Your type"
-              name="type"
-              value={type}
+              name="assetstype"
+              value={assetstype}
               onChange={e => onInputChange(e)}
             />
           </div>

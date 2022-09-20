@@ -15,7 +15,16 @@ const Sister = () => {
   };
 
   const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000/sister/${id}`);
+    await axios.delete(`http://127.0.0.1:8000/sister/${id}`)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Deleted Sucessfully');
+    });
+   
     loadUsers();
   };
 
@@ -23,7 +32,7 @@ const Sister = () => {
     <div className="container">
        
       <div className="py-4">
-        <h1>Items Form</h1>
+        <h1>Sister Form</h1>
         <Link className="btn btn-outline-bule" to="/users9/add">Add</Link>
          
         <table class="table border shadow">
@@ -57,7 +66,8 @@ const Sister = () => {
                   </Link>
                   <Link
                     class="btn btn-danger"
-                    onClick={() => deleteUser(user.id)}
+                    onClick={ () => deleteUser(user.id)}
+                    
                   >
                     Delete
                   </Link>

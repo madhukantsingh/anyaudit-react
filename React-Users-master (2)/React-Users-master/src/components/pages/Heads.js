@@ -15,7 +15,15 @@ const Heads = () => {
   };
 
   const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000/heads/${id}`);
+    await axios.delete(`http://127.0.0.1:8000/heads/${id}`)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Deleted Sucessfully');
+    });
     loadUsers();
   };
 

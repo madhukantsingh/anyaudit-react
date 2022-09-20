@@ -15,7 +15,15 @@ const Types = () => {
   };
 
   const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000/assetstype/${id}`);
+    await axios.delete(`http://127.0.0.1:8000/assetstype/${id}`)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Deleted Sucessfully');
+    });
     loadUsers();
   };
 
@@ -45,12 +53,12 @@ const Types = () => {
                 <td>{user.assetstype}</td>
                 
                 <td>
-                  {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-primary mr-2" to={`/users8/${user.id}`}>
                     View
-                  </Link> */}
+                  </Link>
                   <Link
                     class="btn btn-outline-primary mr-2"
-                    to={`/users3/edit/${user.id}`}
+                    to={`/users8/edit/${user.id}`}
                   >
                     Edit
                   </Link>

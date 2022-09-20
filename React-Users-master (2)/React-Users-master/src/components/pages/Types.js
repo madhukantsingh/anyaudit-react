@@ -15,7 +15,15 @@ const Types = () => {
   };
 
   const deleteUser = async tid => {
-    await axios.delete(`http://127.0.0.1:8000/type/${tid}`);
+    await axios.delete(`http://127.0.0.1:8000/type/${tid}`)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Deleted Sucessfully');
+    });
     loadUsers();
   };
 

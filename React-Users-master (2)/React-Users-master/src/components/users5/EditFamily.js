@@ -23,8 +23,18 @@ const EditFamily = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://127.0.0.1:8000/family/${id}`, user);
-    history.push("/");
+    await axios.put(`http://127.0.0.1:8000/family/${id}`, user)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Updated Sucessfully');
+    });
+    history.push("/family");
+    
+    
   };
 
   const loadUser = async () => {

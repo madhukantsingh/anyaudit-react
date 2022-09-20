@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
-const ViewTypes = () => {
+const ViewAssetstype = () => {
   const [user, setUser] = useState({
     id: "",
-    heads: ""
+    assetstype: ""
    
 
   });
@@ -14,19 +14,18 @@ const ViewTypes = () => {
     loadUser();
   }, []);
   const loadUser = async () => {
-    const res = await axios.get(`http://127.0.0.1:8000/type/${id}`);
+    const res = await axios.get(`http://127.0.0.1:8000/assetstype/${id}`);
     setUser(res.data);
   };
   return (
     <div className="container py-4">
-      <Link className="btn btn-primary" to="/types">
-        Back to Types
+      <Link className="btn btn-primary" to="/sister">
+        back to Assetstype
       </Link>
-      {/* <div className="display-4">type Id: {id}</div> */}
+      {/* <h6 className="display-4">Sister Id: {id}</h6> */}
       <hr />
       <ul className="list-group w-50">
-        <li className="list-group-item">Type Name: {user.type}</li>
-       
+        <li className="list-group-item">name: {user.assetstype}</li>
         
 
 
@@ -35,4 +34,4 @@ const ViewTypes = () => {
   );
 };
 
-export default ViewTypes;
+export default ViewAssetstype;
