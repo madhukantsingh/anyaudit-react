@@ -33,7 +33,7 @@ const Sister = () => {
        
       <div className="py-4">
         <h1>Sister Company Form</h1>
-        <Link className="btn btn-outline-bule" to="/users9/add">Add</Link>
+        <Link className="btn btn-success" to="/users9/add">Add  Sister</Link>
          
         <table class="table border shadow">
         
@@ -55,11 +55,11 @@ const Sister = () => {
                 <td>{user.sister}</td>
                 
                 <td>
-                  <Link class="btn btn-primary mr-2" to={`/users9/${user.id}`}>
+                  <Link class="btn btn-dark mr-2" to={`/users9/${user.id}`}>
                     View
                   </Link>
                   <Link
-                    class="btn btn-outline-primary mr-2"
+                    class="btn btn-outline-warning mr-2"
                     to={`/users9/edit/${user.id}`}
                   >
                     Edit
