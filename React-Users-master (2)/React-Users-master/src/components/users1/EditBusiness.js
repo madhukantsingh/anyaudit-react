@@ -193,10 +193,7 @@ export class EditBusiness extends Component{
     
         
       };
-      omponentDidMount() {
-        let { id } = this.props.params;
-        this.fetchData(id);
-    }
+     
      
       componentDidMount(){
         // console.log("adsfadsfsaf")
@@ -218,7 +215,7 @@ export class EditBusiness extends Component{
       handleSubmit(event){
         console.log(event)
         event.preventDefault();
-        fetch(`http://127.0.0.1:8000//${id}`,{
+        fetch(`http://127.0.0.1:8000/business/`,{
             method:'PUT',
             headers:{
                 'Accept':'application/json',
@@ -319,7 +316,7 @@ export class EditBusiness extends Component{
       </div>
     </div>
   );
-                        }
+ }
 };
 
 export default EditBusiness;
@@ -525,8 +522,6 @@ export default EditBusiness;
 // };
 
 // export default EditBusiness;
-<<<<<<< HEAD
-=======
 
 
 // import React, { useState, useEffect } from "react";
@@ -670,136 +665,135 @@ export default EditBusiness;
 // export default EditUser;
 
 
-import React,{ useEffect, useState } from "react";
+// import React,{ useEffect, useState } from "react";
 
-function EditBusiness(){
-    const [users,setUser]=useState([])
-    const [name, setName]=useState("");
-    const [location, setLocation]=useState("");
-    const [products, setProducts]=useState("");
-    const [type, setType]=useState("");
-    const [IEAL, setIEAL]=useState("");
-    const [heads, setHeads]=useState("");
-    const [description, setDescription]=useState("");
-    const [userId, setUserId]=useState(null)
+// function EditBusiness(){
+//     const [users,setUser]=useState([])
+//     const [name, setName]=useState("");
+//     const [location, setLocation]=useState("");
+//     const [products, setProducts]=useState("");
+//     const [type, setType]=useState("");
+//     const [IEAL, setIEAL]=useState("");
+//     const [heads, setHeads]=useState("");
+//     const [description, setDescription]=useState("");
+//     const [userId, setUserId]=useState(null)
 
-    useEffect(()=>{
-        getUsers();
-    },[])
-    function getUsers() {
-        fetch("http://localhost:8000/business/").then((result)=>{
-            result.json().then((resp)=>{
-                console.warn(resp)
-                setUser(resp)
-                setName(resp)
-                setLocation(resp)
-                setDescription(resp)
-                setProducts(resp)
-                setType(resp)
-                setIEAL(resp)
-                setHeads(resp)
-                setUserId(resp[0].id)
-            })
-        })
-      }
+//     useEffect(()=>{
+//         getUsers();
+//     },[])
+//     function getUsers() {
+//         fetch("http://localhost:8000/business/").then((result)=>{
+//             result.json().then((resp)=>{
+//                 console.warn(resp)
+//                 setUser(resp)
+//                 setName(resp)
+//                 setLocation(resp)
+//                 setDescription(resp)
+//                 setProducts(resp)
+//                 setType(resp)
+//                 setIEAL(resp)
+//                 setHeads(resp)
+//                 setUserId(resp[0].id)
+//             })
+//         })
+//       }
 
-                function selectUser(id){
-                    let item=users[id-1];
-                    setName(item.name)
-                    setLocation(item.location)
-                    setHeads(item.heads)
-                    setDescription(item.description)
-                    setIEAL(item.IEAL)
-                    setProducts(item.products)
-                    setType(item.type)
-                    setUserId(item.id)
-                }
-     function updateUser()
-     {
-        let item={name,location,heads,description,IEAL,products,type}
-    console.warn("item",item)
-    fetch(`http://localhost:8000/business/${userId}`, {
-      method: 'PUT',
-      headers:{
-        'Accept':'application/json',
-        'Content-Type':'application/json'
-      },
-      body:JSON.stringify(item)
-    }).then((result) => {
-      result.json().then((resp) => {
-        console.warn(resp)
-        getUsers()
-      })
-    })
-     }
+//                 function selectUser(id){
+//                     let item=users[id-1];
+//                     setName(item.name)
+//                     setLocation(item.location)
+//                     setHeads(item.heads)
+//                     setDescription(item.description)
+//                     setIEAL(item.IEAL)
+//                     setProducts(item.products)
+//                     setType(item.type)
+//                     setUserId(item.id)
+//                 }
+//      function updateUser()
+//      {
+//         let item={name,location,heads,description,IEAL,products,type}
+//     console.warn("item",item)
+//     fetch(`http://localhost:8000/business/${userId}`, {
+//       method: 'PUT',
+//       headers:{
+//         'Accept':'application/json',
+//         'Content-Type':'application/json'
+//       },
+//       body:JSON.stringify(item)
+//     }).then((result) => {
+//       result.json().then((resp) => {
+//         console.warn(resp)
+//         getUsers()
+//       })
+//     })
+//      }
 
-  {
-    let item={name,location,products,description,type,heads,IEAL}
-    console.warn("item",item)
-    fetch(`http://localhost:8000/business/${userId}`, {
-      method: 'PUT',
-      headers:{
-        'Accept':'application/json',
-        'Content-Type':'application/json'
-      },
-      body:JSON.stringify(item)
-    }).then((result) => {
-      result.json().then((resp) => {
-        console.warn(resp)
-        getUsers()
-      })
-    })
-  }
+//   {
+//     let item={name,location,products,description,type,heads,IEAL}
+//     console.warn("item",item)
+//     fetch(`http://localhost:8000/business/${userId}`, {
+//       method: 'PUT',
+//       headers:{
+//         'Accept':'application/json',
+//         'Content-Type':'application/json'
+//       },
+//       body:JSON.stringify(item)
+//     }).then((result) => {
+//       result.json().then((resp) => {
+//         console.warn(resp)
+//         getUsers()
+//       })
+//     })
+//   }
 
                 
-  return (
-    <div className="App">
-      <h1>Update User Data With API </h1>
-      <table border="1" style={{ float: 'left' }}>
-        <tbody>
-          {/* <tr>
-            <td>name</td>
-            <td>location</td>
-            <td>products</td>
-            <td>description</td>
-            <td>type</td>
-            <td>heads</td>
-            <td>IEAL</td>
+//   return (
+//     <div className="App">
+//       <h1>Update User Data With API </h1>
+//       <table border="1" style={{ float: 'left' }}>
+//         <tbody>
+//           {/* <tr>
+//             <td>name</td>
+//             <td>location</td>
+//             <td>products</td>
+//             <td>description</td>
+//             <td>type</td>
+//             <td>heads</td>
+//             <td>IEAL</td>
             
-          </tr> */}
-          {
-            users.map((item, i) =>
-              <tr key={i}>
-                <td>{item.id}</td>
-                <td>{item.name}</td>
-                <td>{item.location}</td>
-                <td>{item.products}</td>
-                <td>{item.description}</td>
-                <td>{item.type}</td>
-                <td>{item.heads}</td>
-                <td>{item.IEAL}</td>
+//           </tr> */}
+//           {
+//             users.map((item, i) =>
+//               <tr key={i}>
+//                 <td>{item.id}</td>
+//                 <td>{item.name}</td>
+//                 <td>{item.location}</td>
+//                 <td>{item.products}</td>
+//                 <td>{item.description}</td>
+//                 <td>{item.type}</td>
+//                 <td>{item.heads}</td>
+//                 <td>{item.IEAL}</td>
 
-                {/* <td><button onClick={() => deleteUser(item.id)}>Delete</button></td> */}
-                <td><button onClick={() => selectUser(item.id)}>Update</button></td>
+//                 {/* <td><button onClick={() => deleteUser(item.id)}>Delete</button></td> */}
+//                 <td><button onClick={() => selectUser(item.id)}>Update</button></td>
 
-              </tr>
-            )
-          }
-        </tbody>
-      </table>
-      <div>
-      <input type="text" value={name} onChange={(e)=>{setName(e.target.value)}} /> <br /><br />
-        <input type="text" value={location} onChange={(e)=>{setLocation(e.target.value)}} /> <br /><br />
-        <input type="text" value={products}  onChange={(e)=>{setProducts(e.target.value)}} /> <br /><br />
-        <input type="text" value={description}  onChange={(e)=>{setDescription(e.target.value)}} /> <br /><br />
-        <input type="text" value={type}  onChange={(e)=>{setType(e.target.value)}} /> <br /><br />
-        <input type="text" value={heads}  onChange={(e)=>{setHeads(e.target.value)}} /> <br /><br />
-        <input type="text" value={IEAL}  onChange={(e)=>{setIEAL(e.target.value)}} /> <br /><br />
-        <button onClick={updateUser} >Update User</button>  
-      </div>
-    </div>
-  );
+//               </tr>
+//             )
+//           }
+//         </tbody>
+//       </table>
+//       <div>
+//       <input type="text" value={name} onChange={(e)=>{setName(e.target.value)}} /> <br /><br />
+//         <input type="text" value={location} onChange={(e)=>{setLocation(e.target.value)}} /> <br /><br />
+//         <input type="text" value={products}  onChange={(e)=>{setProducts(e.target.value)}} /> <br /><br />
+//         <input type="text" value={description}  onChange={(e)=>{setDescription(e.target.value)}} /> <br /><br />
+//         <input type="text" value={type}  onChange={(e)=>{setType(e.target.value)}} /> <br /><br />
+//         <input type="text" value={heads}  onChange={(e)=>{setHeads(e.target.value)}} /> <br /><br />
+//         <input type="text" value={IEAL}  onChange={(e)=>{setIEAL(e.target.value)}} /> <br /><br />
+//         <button onClick={updateUser} >Update User</button>  
+//       </div>
+//     </div>
+//   );
 
-}
-export default EditBusiness
->>>>>>> 51f18fb4b0f891f5305214071b08fe991cdcdfd1
+// }
+// export default EditBusiness

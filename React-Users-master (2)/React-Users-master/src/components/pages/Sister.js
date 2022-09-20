@@ -24,7 +24,7 @@ const Sister = () => {
        
       <div className="py-4">
         <h1>Items Form</h1>
-        <Link className="btn btn-outline-bule" to="/users8/add">Add</Link>
+        <Link className="btn btn-outline-bule" to="/users9/add">Add</Link>
          
         <table class="table border shadow">
         
@@ -46,12 +46,12 @@ const Sister = () => {
                 <td>{user.sister}</td>
                 
                 <td>
-                  {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-primary mr-2" to={`/users9/${user.id}`}>
                     View
-                  </Link> */}
+                  </Link>
                   <Link
                     class="btn btn-outline-primary mr-2"
-                    to={`/users8/edit/${user.id}`}
+                    to={`/users9/edit/${user.id}`}
                   >
                     Edit
                   </Link>

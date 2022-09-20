@@ -14,8 +14,8 @@ const Types = () => {
     setUser(result.data.reverse());
   };
 
-  const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000/type/${id}`);
+  const deleteUser = async tid => {
+    await axios.delete(`http://127.0.0.1:8000/type/${tid}`);
     loadUsers();
   };
 
@@ -45,9 +45,9 @@ const Types = () => {
                 <td>{user.type}</td>
                 
                 <td>
-                  {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-primary mr-2" to={`/users3/${user.tid}`}>
                     View
-                  </Link> */}
+                  </Link>
                   <Link
                     class="btn btn-outline-primary mr-2"
                     to={`/users3/edit/${user.tid}`}

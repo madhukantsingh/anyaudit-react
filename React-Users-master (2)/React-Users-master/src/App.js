@@ -43,10 +43,17 @@ import EditAssets from "./components/users7/EditAssets";
 import EditAssetstype from "./components/users8/EditAssetstype";
 import Sidebar from "./Sidebar";
 import Sister from "./components/pages/Sister";
-import AddSister from "./components/users8/AddSister";
+import AddSister from "./components/users9/AddSister";
 // import Person from "./components/pages/Person";
 
 import ViewBusiness from "./components/users1/ViewBusiness";
+import EditSister from "./components/users9/EditSister";
+import ViewSister from "./components/users9/ViewSister";
+import ViewProductsname from "./components/users6/ViewProductsname";
+import ViewFamily from "./components/users5/ViewFamily";
+import ViewTypes from "./components/users3/ViewTypes";
+import ViewHeads from "./components/users2/ViewHeads";
+
 function App() {
   return (
     <Router>
@@ -89,10 +96,21 @@ function App() {
           <Route exact path="/users6/edit/:id" component={EditProductsname} />
           <Route exact path="/users7/edit/:id" component={EditAssets} />
           <Route exact path="/users8/edit/:id" component={EditAssetstype} />
+          <Route exact path="/users9/edit/:id" component={EditSister} />
+
 
 
           <Route exact path="/users/:id" component={User} />
           <Route exact path="/users1/:id" component={ViewBusiness} />
+          <Route exact path="/users9/:id" component={ViewSister} />
+          <Route exact path="/users6/:id" component={ViewProductsname} />
+          <Route exact path="/users5/:id" component={ViewFamily} />
+  
+          <Route exact path="/users3/:id" component={ViewTypes} />
+          <Route exact path="/users2/:id" component={ViewHeads} />
+
+
+
 
           <Route component={NotFound} />
         </Switch>

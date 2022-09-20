@@ -11,8 +11,8 @@ export class AddUser extends Component{
       this.handleSubmit=this.handleSubmit.bind(this);
 
     
-  };ponentDidM
-  comount(){
+  };
+  componentDidMount(){
     // console.log("adsfadsfsaf")
       fetch("http://localhost:8000/sister")
       .then(response=>response.json())
@@ -41,8 +41,8 @@ export class AddUser extends Component{
             pan:event.target.pan.value,
             email:event.target.email.value,
             phone:event.target.phone.value,
-            cino:event.target.cino.value,
-            sister:event.target.sister.value,
+            cinno:event.target.cinno.value,
+            sister:event.target.sister.value
             
 
            
