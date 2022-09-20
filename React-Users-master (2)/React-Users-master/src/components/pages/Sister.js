@@ -32,7 +32,7 @@ const Sister = () => {
     <div className="container">
        
       <div className="py-4">
-        <h1>Sister Form</h1>
+        <h1>Sister Company Form</h1>
         <Link className="btn btn-outline-bule" to="/users9/add">Add</Link>
          
         <table class="table border shadow">
