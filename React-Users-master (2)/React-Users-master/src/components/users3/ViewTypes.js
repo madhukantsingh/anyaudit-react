@@ -4,17 +4,17 @@ import axios from "axios";
 
 const ViewTypes = () => {
   const [user, setUser] = useState({
-    id: "",
+    tid: "",
     type: ""
    
 
   });
-  const { id } = useParams();
+  const { tid } = useParams();
   useEffect(() => {
     loadUser();
   }, []);
   const loadUser = async () => {
-    const res = await axios.get(`http://127.0.0.1:8000/type/${id}`);
+    const res = await axios.get(`http://127.0.0.1:8000/type/${tid}`);
     setUser(res.data);
   };
   return (
@@ -22,7 +22,7 @@ const ViewTypes = () => {
       <Link className="btn btn-primary" to="/types">
         Back to Types
       </Link>
-      <div className="display-4">Type Id: {id}</div>
+      <div className="display-4">Type Id: {tid}</div>
       <hr />
       <ul className="list-group w-50">
         <li className="list-group-item">Type Name: {user.type}</li>

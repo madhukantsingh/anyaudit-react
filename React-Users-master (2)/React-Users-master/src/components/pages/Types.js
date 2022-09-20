@@ -45,7 +45,7 @@ const Types = () => {
                 <td>{user.type}</td>
                 
                 <td>
-                  <Link class="btn btn-primary mr-2" to={`/users3/${user.id}`}>
+                  <Link class="btn btn-primary mr-2" to={`/users3/${user.tid}`}>
                     View
                   </Link>
                   <Link
