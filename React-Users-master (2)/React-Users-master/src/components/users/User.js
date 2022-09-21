@@ -32,8 +32,8 @@ const User = () => {
         <li className="list-group-item">user name: {user.name}</li>
         <li className="list-group-item">email: {user.email}</li>
         <li className="list-group-item">phone: {user.phone}</li>
-        <li className="list-group-item">website: {user.pan}</li>
-        <li className="list-group-item">website: {user.cinno}</li>
+        <li className="list-group-item">pan: {user.pan}</li>
+        <li className="list-group-item">cin_no: {user.cinno}</li>
       </ul>
     </div>
   );
