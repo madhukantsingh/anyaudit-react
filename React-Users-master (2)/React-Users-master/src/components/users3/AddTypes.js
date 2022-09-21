@@ -17,8 +17,16 @@ const AddTypes = () => {
 
   const onSubmit = async e => { console.log(user)
     e.preventDefault();
-    await axios.post("http://127.0.0.1:8000/type", user);
-    history.push("/");
+    await axios.post("http://127.0.0.1:8000/type", user)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Added Sucessfully');
+    });
+    history.push("/types");
   };
   return (
     <div className="container">

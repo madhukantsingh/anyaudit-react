@@ -33,8 +33,16 @@ const EditAssets = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://127.0.0.1:8000/${id}`, user);
-    history.push("/");
+    await axios.put(`http://127.0.0.1:8000/${id}`, user)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Updated Sucessfully');
+    });
+    history.push("/assetstype");
   };
 
   const loadUser = async () => {

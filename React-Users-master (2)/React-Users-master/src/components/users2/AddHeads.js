@@ -17,8 +17,16 @@ const AddHeads = () => {
 
   const onSubmit = async e => { console.log(user)
     e.preventDefault(); 
-    await axios.post("http://127.0.0.1:8000/heads", user);
-    history.push("/");
+    await axios.post("http://127.0.0.1:8000/heads", user)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Added Sucessfully');
+    });
+    history.push("/heads");
   };
   return (
     <div className="container">

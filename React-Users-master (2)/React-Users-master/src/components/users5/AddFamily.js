@@ -19,8 +19,16 @@ const AddFamily = () => {
 
   const onSubmit = async e => { console.log(user)
     e.preventDefault();
-    await axios.post("http://127.0.0.1:8000/family", user);
-    history.push("/");
+    await axios.post("http://127.0.0.1:8000/family", user)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Added Sucessfully');
+    });
+    history.push("/family");
   };
   return (
     <div className="container">

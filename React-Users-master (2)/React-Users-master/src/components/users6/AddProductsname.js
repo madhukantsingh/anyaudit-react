@@ -52,7 +52,8 @@ export class AddProductsname extends Component{
     },
     (error)=>{
         alert('Failed');
-    })
+    });
+  
 }
 render(){
   return (

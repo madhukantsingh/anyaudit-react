@@ -291,7 +291,7 @@ render(){
                     </Form.Group>
 
                       <hr></hr>
-                   
+                      
                     <Form.Group controlId="left" className="col-md-6 form-group">
                         <b>Left</b>
                         <Form.Control type="text" name="left" required 

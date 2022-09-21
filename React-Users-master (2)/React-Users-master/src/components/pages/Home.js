@@ -15,7 +15,15 @@ const Home = () => {
   };
 
   const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000/company${id}`);
+    await axios.delete(`http://127.0.0.1:8000/company${id}`)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Deleted Sucessfully');
+    });
     loadUsers();
   };
 
@@ -24,7 +32,7 @@ const Home = () => {
        
       <div className="py-4">
         <h1>Company Form</h1>
-        <Link className="btn btn-primary" to="/users/add">Add</Link>
+        <Link className="btn btn-success" to="/users/add">Add Company</Link>
         {/* <Link className="btn btn-center-outline-bule" to >Logout</Link> */}
          &nbsp;
         <table class="table border shadow"> &nbsp;
@@ -57,11 +65,11 @@ const Home = () => {
                 <td>{user.cinno}</td>
 
                 <td>
-                 <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                 <Link class="btn btn-dark mr-2" to={`/users/${user.id}`}>
                     View
                   </Link> 
                   <Link
-                    class="btn btn-outline-primary mr-2"
+                    class="btn btn-outline-warning mr-2"
                     to={`/users/edit/${user.id}`}
                   >
                     Edit
