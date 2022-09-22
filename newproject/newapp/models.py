@@ -135,7 +135,7 @@ class Assets(models.Model):
     rightb = models.CharField(max_length=255, blank=True, null=True)
     front = models.CharField(max_length=255, blank=True, null=True)
     back = models.CharField(max_length=255, blank=True, null=True)
-    attachment = models.ImageField(max_length=255, blank=True, null=True)
+    attachment = models.FileField(max_length=255, blank=True, null=True)
 
     class Meta:
         
