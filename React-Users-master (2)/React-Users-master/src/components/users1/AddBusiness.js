@@ -98,7 +98,7 @@ render(){
 
 			<Form.Group controlId="IEAL" className="col-md-6 form-group">
                         <b>IEAL</b>
-                        <Form.Control type="text" name="IEAL" required 
+                        <Form.Control type="text" name="IEAL"  
                         placeholder="IEAL"/>
                     </Form.Group>
 
@@ -112,7 +112,7 @@ render(){
 
                     <Form.Group controlId="description" className="col-md-6 form-group">
                         <b>Description</b>
-                        <Form.Control as="textarea" rows="3"type="textarea" name="description" required 
+                        <Form.Control as="textarea" rows="3"type="textarea" name="description"  
                         placeholder="description"/>
                     </Form.Group>
 

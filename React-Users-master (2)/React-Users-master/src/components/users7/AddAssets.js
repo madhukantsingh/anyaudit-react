@@ -206,7 +206,7 @@ export class AddAssets extends Component{
 
 
   handleSubmit(event){
-    console.log(event)
+    
     event.preventDefault();
     fetch("http://localhost:8000/assets",{
         method:'POST',
@@ -233,6 +233,7 @@ export class AddAssets extends Component{
     })
     .then(res=>res.json())
     .then((result)=>{
+        console.log(result,"taaaaa")
         alert(result);
 
     },

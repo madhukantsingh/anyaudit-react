@@ -4,14 +4,7 @@ from newapp.models import Bussiness,Type,Heads,Educational,Networth,Persons,Prod
 class BussinessSerializer(serializers.ModelSerializer):
     class Meta:
         model = Bussiness
-        fields = ('id',
-                  'name',
-                  'description',
-                  'location',                  
-                  'products',
-                  'type',
-                  'IEAL',
-                  'heads')
+        fields = '__all__'
 
 
 
@@ -109,19 +102,7 @@ class AssetstypeSerializer(serializers.ModelSerializer):
 class AssetsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Assets
-        fields = ('id',
-                  'name',
-                  'location',
-                  'assetstype',                  
-                  'area',
-                  'fmv',
-                  'sdv',
-                  'leftb',
-                  'rightb',
-                  'front',                  
-                  'back',
-                  'attachment'
-                  )
+        fields = '__all__'
 
 class SisterSerializer(serializers.ModelSerializer):
     class Meta:
