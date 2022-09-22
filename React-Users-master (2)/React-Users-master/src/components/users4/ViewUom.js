@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
-const ViewProductsname = () => {
+const ViewUom = () => {
   const [user, setUser] = useState({
     id: "",
-    product_name: "",
-    UOM:""
+    name: "",
+    measure:""
    
 
   });
@@ -15,19 +15,19 @@ const ViewProductsname = () => {
     loadUser();
   }, []);
   const loadUser = async () => {
-    const res = await axios.get(`http://127.0.0.1:8000/products/${id}`);
+    const res = await axios.get(`http://127.0.0.1:8000/uom/${id}`);
     setUser(res.data);
   };
   return (
     <div className="container py-4">
-      <Link className="btn btn-primary" to="/productname">
-        Back to Product Name
+      <Link className="btn btn-primary" to="/Uom">
+        Back to UOM Page
       </Link>
       {/* <div className="display-4">Productsname Id: {id}</div> */}
       <hr />
       <ul className="list-group w-50">
-        <li className="list-group-item">Product Name: {user.product_name}</li>
-        <li className="list-group-item">UOM: {user.UOM}</li>
+        <li className="list-group-item">Uom Name: {user.name}</li>
+        <li className="list-group-item">measure: {user.measure}</li>
 
         
 
@@ -37,4 +37,4 @@ const ViewProductsname = () => {
   );
 };
 
-export default ViewProductsname;
+export default ViewUom;
