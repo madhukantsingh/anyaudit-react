@@ -49,7 +49,7 @@ const Uom = () => {
                 <td>{user.measure}</td>
                
                 <td>
-                  <Link class="btn btn-dark mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-dark mr-2" to={`/users4/${user.id}`}>
                     View
                   </Link>
                   <Link
