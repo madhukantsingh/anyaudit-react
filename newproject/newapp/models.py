@@ -127,10 +127,6 @@ class Assets(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
-<<<<<<< HEAD
-
-=======
->>>>>>> ccecb56992116c2c24024b86f09fe6302e85b59e
     assetstype = models.CharField(max_length=255, blank=True, null=True)
     area = models.CharField(max_length=255, blank=True, null=True)
     fmv = models.IntegerField(blank=True, null=True)
@@ -139,20 +135,7 @@ class Assets(models.Model):
     rightb = models.CharField(max_length=255, blank=True, null=True)
     front = models.CharField(max_length=255, blank=True, null=True)
     back = models.CharField(max_length=255, blank=True, null=True)
-    attachment = models.ImageField(max_length=255, blank=True, null=True)
-<<<<<<< HEAD
-    assetstype = models.CharField(max_length=255,blank=True, null=True)
-    area = models.CharField(max_length=255,blank=True, null=True)
-    fmv = models.CharField(max_length=255,blank=True, null=True)
-    sdv = models.CharField(max_length=255,blank=True, null=True)
-    leftb = models.CharField(max_length=255,blank=True, null=True)
-    rightb = models.CharField(max_length=255,blank=True, null=True)
-    front = models.CharField(max_length=255,blank=True, null=True)
-    back = models.CharField(max_length=255,blank=True, null=True)
-    attachment = models.FileField(upload_to='post_images',blank=True, null=True)
-
-=======
->>>>>>> ccecb56992116c2c24024b86f09fe6302e85b59e
+    attachment = models.FileField(max_length=255, blank=True, null=True)
 
     class Meta:
         
