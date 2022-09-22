@@ -56,12 +56,12 @@ const Assets = () => {
                 <td>{user.attactment}</td>
                 
                 <td>
-                  <Link class="btn btn-dark mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-dark mr-2" to={`/assets/${user.id}`}>
                     View
                   </Link>
                   <Link
                     class="btn btn-outline-warning mr-2"
-                    to={`/users/edit/${user.id}`}
+                    to={`/assets/edit/${user.id}`}
                   >
                     Edit
                   </Link>
