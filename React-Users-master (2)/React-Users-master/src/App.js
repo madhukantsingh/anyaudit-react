@@ -53,6 +53,7 @@ import ViewProductsname from "./components/users6/ViewProductsname";
 import ViewFamily from "./components/users5/ViewFamily";
 import ViewTypes from "./components/users3/ViewTypes";
 import ViewHeads from "./components/users2/ViewHeads";
+import ViewUom from "./components/users4/ViewUom";
 import ViewAssetstype from "./components/users8/ViewAssetstype";
 
 function App() {
@@ -106,6 +107,7 @@ function App() {
           <Route exact path="/users9/:id" component={ViewSister} />
           <Route exact path="/users6/:id" component={ViewProductsname} />
           <Route exact path="/users5/:id" component={ViewFamily} />
+          <Route exact path="/users4/:id" component={ViewUom} />
   
           <Route exact path="/users3/:id" component={ViewTypes} />
           <Route exact path="/users2/:id" component={ViewHeads} />
