@@ -64,7 +64,7 @@ function App() {
         {/* <Sidebar/> */}
         <Switch>
           <Route exact path="/" component={Home} />
-           <Route exact path="/business/" component={Business} />
+          <Route exact path="/business/" component={Business} />
           <Route exact path="/heads" component={Heads} /> 
           <Route exact path="/types" component={Types} /> 
           <Route exact path="/uom" component={Uom} /> 
@@ -77,7 +77,7 @@ function App() {
           
 
           <Route exact path="/users/add" component={AddUser} />
-           <Route exact path="/users1/add" component={AddBusiness} /> 
+          <Route exact path="/users1/add" component={AddBusiness} /> 
           <Route exact path="/users2/add" component={AddHeads} />
           <Route exact path="/users3/add" component={AddTypes} />
           <Route exact path="/users4/add" component={AddUom} />
