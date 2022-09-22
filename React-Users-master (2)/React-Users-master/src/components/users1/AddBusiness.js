@@ -50,11 +50,6 @@ export class AddBusiness extends Component{
             IEAL:event.target.IEAL.value,
             heads:event.target.heads.value
            
-          
-
-            
-
-
         })
     })
     .then(res=>res.json())
