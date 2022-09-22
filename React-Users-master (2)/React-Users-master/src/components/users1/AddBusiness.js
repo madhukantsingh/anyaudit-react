@@ -48,7 +48,13 @@ export class AddBusiness extends Component{
             products:event.target.products.value,
             type:event.target.type.value,
             IEAL:event.target.IEAL.value,
+<<<<<<< HEAD
+            heads:event.target.heads.value
+           
+        })
+=======
             heads:event.target.heads.value})
+>>>>>>> 6defc1f2defd9d143543a8369465fe9b655791cb
     })
     .then(res=>res.json())
     .then((result)=>{
@@ -98,7 +104,7 @@ render(){
 
 			<Form.Group controlId="IEAL" className="col-md-6 form-group">
                         <b>IEAL</b>
-                        <Form.Control type="text" name="IEAL" required 
+                        <Form.Control type="text" name="IEAL"  
                         placeholder="IEAL"/>
                     </Form.Group>
 
@@ -112,7 +118,7 @@ render(){
 
                     <Form.Group controlId="description" className="col-md-6 form-group">
                         <b>Description</b>
-                        <Form.Control as="textarea" rows="3"type="textarea" name="description" required 
+                        <Form.Control as="textarea" rows="3"type="textarea" name="description"  
                         placeholder="description"/>
                     </Form.Group>
 
