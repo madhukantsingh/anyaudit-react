@@ -630,9 +630,13 @@ def AssetsApi(request,id = 0):
                 print("tharun exception")
         else:
 
+            
+
             assets = Assets.objects.all()
+            
             print(assets)
             assets_serializer = AssetsSerializer(assets, many=True) 
+            print("tharun in else")
             print(assets_serializer.data,"assets_data")
             response =  JsonResponse(assets_serializer.data, safe=False)        
         return response
