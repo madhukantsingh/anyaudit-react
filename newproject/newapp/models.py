@@ -127,7 +127,7 @@ class Assets(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
-<<<<<<< HEAD
+
     assetstype = models.CharField(max_length=255, blank=True, null=True)
     area = models.CharField(max_length=255, blank=True, null=True)
     fmv = models.IntegerField(blank=True, null=True)
@@ -137,7 +137,6 @@ class Assets(models.Model):
     front = models.CharField(max_length=255, blank=True, null=True)
     back = models.CharField(max_length=255, blank=True, null=True)
     attachment = models.ImageField(max_length=255, blank=True, null=True)
-=======
     assetstype = models.CharField(max_length=255,blank=True, null=True)
     area = models.CharField(max_length=255,blank=True, null=True)
     fmv = models.CharField(max_length=255,blank=True, null=True)
@@ -147,7 +146,7 @@ class Assets(models.Model):
     front = models.CharField(max_length=255,blank=True, null=True)
     back = models.CharField(max_length=255,blank=True, null=True)
     attachment = models.FileField(upload_to='post_images',blank=True, null=True)
->>>>>>> 12e45c2e0d61d61f0616152b75e2ede29c87c4fe
+
 
     class Meta:
         
