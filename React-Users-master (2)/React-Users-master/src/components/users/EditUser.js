@@ -30,7 +30,7 @@ const EditUser = () => {
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://127.0.0.1:8000//${id}`);
+    const result = await axios.get(`http://127.0.0.1:8000/company/${id}`);
     setUser(result.data);
   };
   return (

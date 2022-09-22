@@ -17,7 +17,7 @@ const User = () => {
     loadUser();
   }, []);
   const loadUser = async () => {
-    const res = await axios.get(`http://127.0.0.1:8000/users/${id}`);
+    const res = await axios.get(`http://127.0.0.1:8000/company/${id}`);
     setUser(res.data);
   };
   return (
