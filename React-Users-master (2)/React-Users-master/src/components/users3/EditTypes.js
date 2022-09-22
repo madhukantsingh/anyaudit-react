@@ -22,8 +22,16 @@ const EditTypes = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://localhost:8000/type/${id}`, user);
-    history.push("/");
+    await axios.put(`http://localhost:8000/type/${id}`, user)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Updated Sucessfully');
+    });
+    history.push("/types");
   };
 
   const loadUser = async () => {

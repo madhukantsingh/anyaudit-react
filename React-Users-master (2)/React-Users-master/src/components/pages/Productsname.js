@@ -24,13 +24,13 @@ const Productsname = () => {
        
       <div className="py-4">
         <h1>Products Names</h1>
-        <Link className="btn btn-outline-bule" to="/users6/add">Add</Link>
+        <Link className="btn btn-success" to="/users6/add">Add Products</Link>
          
         <table class="table border shadow">
         
           <thead class="thead-dark">
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">S No</th>
               <th scope="col">Name Of The Product</th>
               <th scope="col">UOM</th>
 
@@ -48,11 +48,11 @@ const Productsname = () => {
                 <td>{user.UOM}</td>
                 
                 <td>
-                  {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-dark mr-2" to={`/users6/${user.id}`}>
                     View
-                  </Link> */}
+                  </Link>
                   <Link
-                    class="btn btn-outline-primary mr-2"
+                    class="btn btn-outline-warning mr-2"
                     to={`/users/edit/${user.id}`}
                   >
                     Edit

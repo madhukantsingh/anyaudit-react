@@ -112,7 +112,7 @@ class AssetsSerializer(serializers.ModelSerializer):
         fields = ('id',
                   'name',
                   'location',
-                  'typeof',                  
+                  'assetstype',                  
                   'area',
                   'fmv',
                   'sdv',

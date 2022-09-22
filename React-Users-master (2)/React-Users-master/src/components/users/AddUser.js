@@ -6,22 +6,22 @@ import {Modal,Button, Row, Col, Form} from 'react-bootstrap';
 export class AddUser extends Component{
   constructor(props) {
     super(props)
-    this.state = {deps:[],typ:[]};
+    this.state = {deps:[]};
       // console.log("adsfadsfsaf")
       this.handleSubmit=this.handleSubmit.bind(this);
 
     
   };
-//   componentDidMount(){
-//     // console.log("adsfadsfsaf")
-//       fetch("http://localhost:8000/type")
-//       .then(response=>response.json())
-//       .then(data=>{
-//           this.setState({deps:data});
-//            console.log("adsfadsfsaf,thar",data)
-//       });
+  componentDidMount(){
+    // console.log("adsfadsfsaf")
+      fetch("http://localhost:8000/sister")
+      .then(response=>response.json())
+      .then(data=>{
+          this.setState({deps:data});
+           console.log("adsfadsfsaf,thar",data)
+      });
      
-//   }
+  }
   
 
 
@@ -41,8 +41,8 @@ export class AddUser extends Component{
             pan:event.target.pan.value,
             email:event.target.email.value,
             phone:event.target.phone.value,
-            cino:event.target.cino.value,
-            sister:event.target.sister.value,
+            cinno:event.target.cinno.value,
+            sister:event.target.sister.value
             
 
            
@@ -100,7 +100,7 @@ render(){
                         <Form.Label>Sister</Form.Label>
                         <Form.Control as="select">
                         {this.state.deps.map(dep=>
-                            <option key={dep.tid}>{dep.sister}</option>)}
+                            <option key={dep.id}>{dep.sister}</option>)}
                         </Form.Control>
                     </Form.Group>
 

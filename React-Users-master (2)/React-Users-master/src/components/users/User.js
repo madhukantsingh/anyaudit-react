@@ -17,7 +17,7 @@ const User = () => {
     loadUser();
   }, []);
   const loadUser = async () => {
-    const res = await axios.get(`http://127.0.0.1:8000/users/${id}`);
+    const res = await axios.get(`http://127.0.0.1:8000/company/${id}`);
     setUser(res.data);
   };
   return (
@@ -32,8 +32,8 @@ const User = () => {
         <li className="list-group-item">user name: {user.name}</li>
         <li className="list-group-item">email: {user.email}</li>
         <li className="list-group-item">phone: {user.phone}</li>
-        <li className="list-group-item">website: {user.pan}</li>
-        <li className="list-group-item">website: {user.cinno}</li>
+        <li className="list-group-item">pan: {user.pan}</li>
+        <li className="list-group-item">cin_no: {user.cinno}</li>
       </ul>
     </div>
   );

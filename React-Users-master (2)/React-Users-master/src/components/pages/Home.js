@@ -15,7 +15,15 @@ const Home = () => {
   };
 
   const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000/company${id}`);
+    await axios.delete(`http://127.0.0.1:8000/company${id}`)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Deleted Sucessfully');
+    });
     loadUsers();
   };
 
@@ -24,18 +32,20 @@ const Home = () => {
        
       <div className="py-4">
         <h1>Company Form</h1>
-        <Link className="btn btn-primary" to="/users/add">Add</Link>
+        <Link className="btn btn-success" to="/users/add">Add Company</Link>
         {/* <Link className="btn btn-center-outline-bule" to >Logout</Link> */}
          &nbsp;
         <table class="table border shadow"> &nbsp;
         
           <thead class="thead-dark">
             <tr>
-              <th scope="col">ID</th>
+            <th scope="col">S No</th>
               <th scope="col">Name</th>
               <th scope="col">Pan</th>
               <th scope="col">Email</th>
               <th scope="col">Phone</th>
+              <th scope="col">Sister</th>
+
               <th scope="col">Cin No</th>
 
 
@@ -46,19 +56,20 @@ const Home = () => {
             {users.map((user, index) => (
               <tr>
                 <th scope="row">{index + 1}</th>
-                <td>{user.id}</td>
+                
                 <td>{user.name}</td>
                 <td>{user.pan}</td>
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
+                <td>{user.sister}</td>
                 <td>{user.cinno}</td>
 
                 <td>
-                 <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                 <Link class="btn btn-dark mr-2" to={`/users/${user.id}`}>
                     View
                   </Link> 
                   <Link
-                    class="btn btn-outline-primary mr-2"
+                    class="btn btn-outline-warning mr-2"
                     to={`/users/edit/${user.id}`}
                   >
                     Edit

@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className="sidenavbar navbar-expand navbar-dark bg-primary">
       <div className="container">
         <Link className="navbar-brand" href="/">
-         <h2 style={{color: "darkgreen    "}}> AnyAudit</h2>
+         <h2 style={{color: "success "}}> AnyAudit</h2>
         </Link>
         <button
           className="navbar-toggler"
@@ -23,7 +23,12 @@ const Navbar = () => {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
               <NavLink className="nav-link" exact to="/">
-               <h6  > Home </h6>
+               <h6  > Company </h6>
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" exact to="/sister">
+              <h6> Sister</h6>
               </NavLink>
             </li>
             <li className="nav-item">
@@ -42,6 +47,11 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink className="nav-link" exact to="/productname">
+              <h6> Products Names</h6>
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink className="nav-link" exact to="/uom">
               <h6> UOM Master </h6>
               </NavLink>
@@ -52,21 +62,20 @@ const Navbar = () => {
               </NavLink>
             </li>
 
-            <li className="nav-item">
-              <NavLink className="nav-link" exact to="/productname">
-              <h6> Products Names</h6>
-              </NavLink>
-            </li>
+           
             <li className="nav-item">
               <NavLink className="nav-link" exact to="/assets">
               <h6> Assets</h6>
               </NavLink>
             </li>
+
             <li className="nav-item">
-              <NavLink className="nav-link" exact to="/person">
-              <h6> Person</h6>
+              <NavLink className="nav-link" exact to="/assetstype">
+              <h6> Assetstype</h6>
               </NavLink>
             </li>
+           
+           
 
            
           </ul>

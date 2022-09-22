@@ -10,12 +10,12 @@ const Assets = () => {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("http://127.0.0.1:8000/");
+    const result = await axios.get("http://127.0.0.1:8000/assets");
     setUser(result.data.reverse());
   };
 
   const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000//${id}`);
+    await axios.delete(`http://127.0.0.1:8000/assets/${id}`);
     loadUsers();
   };
 
@@ -24,13 +24,13 @@ const Assets = () => {
        
       <div className="py-4">
         <h1> Assets page</h1>
-        <Link className="btn btn-outline-bule" to="/users7/add">Add</Link>
+        <Link className="btn btn-success" to="/users7/add">Add Assets</Link>
          
         <table class="table border shadow">
         
           <thead class="thead-dark">
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">S No</th>
               <th scope="col">Name</th>
               <th scope="col">Location</th>
               <th scope="col">Type</th>
@@ -46,23 +46,22 @@ const Assets = () => {
           <tbody>
             {users.map((user, index) => (
               <tr>
-                <th scope="row">{index + 1}</th>
-                <td>{user.id}</td>
+                <th scope="row">{index + 1}</th>    
                 <td>{user.name}</td>
                 <td>{user.location}</td>
-                <td>{user.type}</td>
+                <td>{user.assetstype}</td>
                 <td>{user.area}</td>
                 <td>{user.fmv}</td>
                 <td>{user.sdv}</td>
                 <td>{user.attactment}</td>
                 
                 <td>
-                  {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-dark mr-2" to={`/assets/${user.id}`}>
                     View
-                  </Link> */}
+                  </Link>
                   <Link
-                    class="btn btn-outline-primary mr-2"
-                    to={`/users/edit/${user.id}`}
+                    class="btn btn-outline-warning mr-2"
+                    to={`/assets/edit/${user.id}`}
                   >
                     Edit
                   </Link>

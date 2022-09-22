@@ -14,8 +14,16 @@ const Types = () => {
     setUser(result.data.reverse());
   };
 
-  const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000/type/${id}`);
+  const deleteUser = async tid => {
+    await axios.delete(`http://127.0.0.1:8000/type/${tid}`)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Deleted Sucessfully');
+    });
     loadUsers();
   };
 
@@ -24,13 +32,13 @@ const Types = () => {
        
       <div className="py-4">
         <h1>Types Of The Products</h1>
-        <Link className="btn btn-outline-bule" to="/users3/add">Add</Link>
+        <Link className="btn btn-success"  to="/users3/add">Add Types</Link>
          
         <table class="table border shadow">
         
           <thead class="thead-dark">
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">S No</th>
               <th scope="col">NAME Of The Type</th>
               
 
@@ -45,11 +53,11 @@ const Types = () => {
                 <td>{user.type}</td>
                 
                 <td>
-                  {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-dark mr-2" to={`/users3/${user.tid}`}>
                     View
-                  </Link> */}
+                  </Link>
                   <Link
-                    class="btn btn-outline-primary mr-2"
+                    class="btn btn-outline-warning mr-2"
                     to={`/users3/edit/${user.tid}`}
                   >
                     Edit

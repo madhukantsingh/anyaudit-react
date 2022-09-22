@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 
-const AddTypes = () => {
+const AddSister = () => {
   let history = useHistory();
   const [user, setUser] = useState({
     
-    type: ""
+    sister: ""
     
   });
 
-  const { type } = user;
+  const { sister } = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const onSubmit = async e => { console.log(user)
     e.preventDefault();
-    await axios.post("http://127.0.0.1:8000/type", user)
+    await axios.post("http://127.0.0.1:8000/sister", user)
     .then(res=>res.json())
     .then((result)=>{
         alert(result);
@@ -26,12 +26,13 @@ const AddTypes = () => {
     (error)=>{
         alert('Added Sucessfully');
     });
-    history.push("/types");
+    history.push("/sister");
+    
   };
   return (
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">Product Types</h2>
+        <h2 className="text-center mb-4">Sister</h2>
         <center>
         <form onSubmit={e => onSubmit(e)}>
         
@@ -42,8 +43,8 @@ const AddTypes = () => {
               type="text"
              
               placeholder="Enter Your name"
-              name="type"
-              value={type}
+              name="sister"
+              value={sister}
               onChange={e => onInputChange(e)}
             />
           </div>
@@ -59,4 +60,4 @@ const AddTypes = () => {
   );
 };
 
-export default AddTypes;
+export default AddSister;

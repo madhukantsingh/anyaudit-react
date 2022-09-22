@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 
-const EditHeads = () => {
+const EditAssetstype = () => {
   let history = useHistory();
   const { id } = useParams();
   const [user, setUser] = useState({
     
-    heads: "",
-    
+    assetstype: "",
+   
   });
 
-  const {  heads} = user;
+  const {  assetstype } = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -22,7 +22,7 @@ const EditHeads = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://127.0.0.1:8000/heads/${id}`, user)
+    await axios.put(`http://localhost:8000/assetstype/${id}`, user)
     .then(res=>res.json())
     .then((result)=>{
         alert(result);
@@ -31,32 +31,32 @@ const EditHeads = () => {
     (error)=>{
         alert('Updated Sucessfully');
     });
-    history.push("/heads");
+    history.push("/assetstype");
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://127.0.0.1:8000/heads/${id}`);
+    const result = await axios.get(`http://localhost:8000/assetstype/${id}`);
     setUser(result.data);
   };
   return (
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">Edit Heads</h2>
+        <h2 className="text-center mb-4">Edit Assetstype</h2>
         <form onSubmit={e => onSubmit(e)}>
         
          
           <div className="form-group">
-          <b>Name:</b>&nbsp;&nbsp;&nbsp;
+          <b>Assetstype:</b>&nbsp;&nbsp;&nbsp;
             <input
               type="text"
               
-              placeholder="Enter Your name"
-              name="heads"
-              value={heads}
+              placeholder="Enter Your type"
+              name="assetstype"
+              value={assetstype}
               onChange={e => onInputChange(e)}
             />
           </div>
-          
+       
           <button className="btn btn-warning btn-block">Update</button>
         </form>
       </div>
@@ -64,4 +64,4 @@ const EditHeads = () => {
   );
 };
 
-export default EditHeads;
+export default EditAssetstype;

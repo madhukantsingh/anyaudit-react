@@ -9,10 +9,10 @@ const EditFamily = () => {
     
     name: "",
     defaults: "",
-    uomdefect:""
+    u_of_measurement:""
   });
 
-  const { name, defaults, uomdefect} = user;
+  const { name, defaults, u_of_measurement} = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -23,18 +23,28 @@ const EditFamily = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://127.0.0.1:8000/users/${id}`, user);
-    history.push("/");
+    await axios.put(`http://127.0.0.1:8000/family/${id}`, user)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Updated Sucessfully');
+    });
+    history.push("/family");
+    
+    
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://127.0.0.1:8000/users/${id}`);
+    const result = await axios.get(`http://127.0.0.1:8000/family/${id}`);
     setUser(result.data);
   };
   return (
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">Edit A Company</h2>
+        <h2 className="text-center mb-4">Edit Family</h2>
         <form onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<b>Name:</b>&nbsp;
@@ -53,7 +63,7 @@ const EditFamily = () => {
               type="text"
              
               placeholder="Enter Your name"
-              name="name"
+              name="defaults"
               value={defaults}
               onChange={e => onInputChange(e)}
             />
@@ -67,8 +77,8 @@ const EditFamily = () => {
               type="text"
               
               placeholder="Enter Your name"
-              name="name"
-              value={uomdefect}
+              name="u_of_measurement"
+              value={u_of_measurement}
               onChange={e => onInputChange(e)}
             />
           </div>

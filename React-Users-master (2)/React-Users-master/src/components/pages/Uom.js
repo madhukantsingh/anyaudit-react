@@ -24,14 +24,14 @@ const Uom = () => {
        
       <div className="py-4">
         <h1>UOM Master</h1>
-        <Link className="btn btn-outline-bule" to="/users4/add">Add</Link>
+        <Link className="btn btn-success" to="/users4/add">Add Uom</Link>
         {/* <Link className="btn btn-right-outline-bule" to >Logout</Link> */}
          
         <table class="table border shadow">
         
           <thead class="thead-dark">
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">S No</th>
             
               <th scope="col">Family Name</th>
               <th scope="col">Measure</th>
@@ -49,12 +49,12 @@ const Uom = () => {
                 <td>{user.measure}</td>
                
                 <td>
-                  {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                <Link class="btn btn-dark mr-2" to={`/users4/${user.id}`}>
                     View
-                  </Link> */}
+                  </Link>
                   <Link
-                    class="btn btn-outline-primary mr-2"
-                    to={`/users/edit/${user.id}`}
+                    class="btn btn-outline-warning mr-2"
+                    to={`/users4/edit/${user.id}`}
                   >
                     Edit
                   </Link>

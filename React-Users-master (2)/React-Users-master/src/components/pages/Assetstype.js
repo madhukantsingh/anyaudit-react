@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const Heads = () => {
+const Types = () => {
   const [users, setUser] = useState([]);
 
   useEffect(() => {
@@ -10,12 +10,12 @@ const Heads = () => {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("http://127.0.0.1:8000/heads");
+    const result = await axios.get("http://127.0.0.1:8000/assetstype");
     setUser(result.data.reverse());
   };
 
   const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000/heads/${id}`)
+    await axios.delete(`http://127.0.0.1:8000/assetstype/${id}`)
     .then(res=>res.json())
     .then((result)=>{
         alert(result);
@@ -31,15 +31,15 @@ const Heads = () => {
     <div className="container">
        
       <div className="py-4">
-        <h1>Heads Form</h1>
-        <Link className="btn btn-success" to="/users2/add">Add Heads</Link>
+        <h1>Types Of The Assets</h1>
+        <Link className="btn btn-success" to="/users8/add">Add Assetstype</Link>
          
         <table class="table border shadow">
         
           <thead class="thead-dark">
             <tr>
               <th scope="col">S No</th>
-              <th scope="col">Name Of The Heads</th>
+              <th scope="col">Type of assets</th>
               
 
               <th>Action</th>
@@ -49,16 +49,16 @@ const Heads = () => {
             {users.map((user, index) => (
               <tr>
                 <th scope="row">{index + 1}</th>
-                
-                <td>{user.heads}</td>
+               
+                <td>{user.assetstype}</td>
                 
                 <td>
-                  <Link class="btn btn-dark mr-2" to={`/users2/${user.id}`}>
+                  <Link class="btn btn-dark mr-2" to={`/users8/${user.id}`}>
                     View
                   </Link>
                   <Link
                     class="btn btn-outline-warning mr-2"
-                    to={`/users2/edit/${user.id}`}
+                    to={`/users8/edit/${user.id}`}
                   >
                     Edit
                   </Link>
@@ -84,4 +84,4 @@ const Heads = () => {
   );
 };
 
-export default Heads;
+export default Types;

@@ -193,7 +193,7 @@ export class AddAssets extends Component{
   };
   componentDidMount(){
     // console.log("adsfadsfsaf")
-      fetch("http://localhost:8000/type")
+      fetch("http://localhost:8000/assetstype")
       .then(response=>response.json())
       .then(data=>{
           this.setState({deps:data});
@@ -208,7 +208,7 @@ export class AddAssets extends Component{
   handleSubmit(event){
     console.log(event)
     event.preventDefault();
-    fetch("http://localhost:8000/business",{
+    fetch("http://localhost:8000/assets",{
         method:'POST',
         headers:{
             'Accept':'application/json',
@@ -218,7 +218,7 @@ export class AddAssets extends Component{
             id:null,
             name:event.target.name.value,
             location:event.target.location.value,
-            types:event.target.types.value,
+            assetstype:event.target.assetstype.value,
             area:event.target.area.value,
             fmv:event.target.fmv.value,
             sdv:event.target.sdv.value,
@@ -264,11 +264,11 @@ render(){
                         placeholder="location"/>
                     </Form.Group>
 
-                    <Form.Group controlId="types" className="col-md-6 form-group">
-                        <b>Types</b>
+                    <Form.Group controlId="assetstype" className="col-md-6 form-group">
+                        <b>assetstype</b>
                         <Form.Control as="select">
                         {this.state.deps.map(dep=>
-                            <option key={dep.id}>{dep.types}</option>)}
+                            <option key={dep.id}>{dep.assetstype}</option>)}
                         </Form.Control>
                     </Form.Group>
 
@@ -291,7 +291,7 @@ render(){
                     </Form.Group>
 
                       <hr></hr>
-                   
+                      
                     <Form.Group controlId="left" className="col-md-6 form-group">
                         <b>Left</b>
                         <Form.Control type="text" name="left" required 
@@ -314,7 +314,7 @@ render(){
                     </Form.Group>
                     <Form.Group controlId="attacthment" className="col-md-6 form-group">
                         <b>File</b>
-                        <Form.Control type="file" name="attacthment" required 
+                        <Form.Control type="file" name="attacthment" 
                         placeholder="attacthment"/>
                     </Form.Group>
 

@@ -15,7 +15,15 @@ const Family = () => {
   };
 
   const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000/family/${id}`);
+    await axios.delete(`http://127.0.0.1:8000/family/${id}`)
+    .then(res=>res.json())
+    .then((result)=>{
+        alert(result);
+
+    },
+    (error)=>{
+        alert('Deleted Sucessfully');
+    });
     loadUsers();
   };
 
@@ -24,14 +32,14 @@ const Family = () => {
        
       <div className="py-4">
         <h1>Family Name</h1>
-        <Link className="btn btn-outline-bule" to="/users5/add">Add</Link>
-        <Link className="btn btn-right-outline-bule" to >Logout</Link>
+        <Link className="btn btn-success" to="/users5/add">Add Family</Link>
+       
          
         <table class="table border shadow">
         
           <thead class="thead-dark">
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">S No</th>
               <th scope="col">Name</th>
               <th scope="col">Default</th>
               <th scope="col">U Of Measurement</th>
@@ -49,12 +57,12 @@ const Family = () => {
                 <td>{user.u_of_measurement}</td>
                 
                 <td>
-                  {/* <Link class="btn btn-primary mr-2" to={`/users/${user.id}`}>
+                  <Link class="btn btn-dark mr-2" to={`/users5/${user.id}`}>
                     View
-                  </Link> */}
+                  </Link>
                   <Link
-                    class="btn btn-outline-primary mr-2"
-                    to={`/users/edit/${user.id}`}
+                    class="btn btn-outline-warning mr-2"
+                    to={`/users5/edit/${user.id}`}  
                   >
                     Edit
                   </Link>

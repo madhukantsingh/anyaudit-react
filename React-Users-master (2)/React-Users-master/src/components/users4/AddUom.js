@@ -50,6 +50,7 @@ export class AddUom extends Component{
 render(){
   return (
     <div className="container">
+      
       <div className="w-75 mx-auto shadow p-5">
         <h2 className="text-center mb-4">UOM</h2>
         <div className="col-md-12">
