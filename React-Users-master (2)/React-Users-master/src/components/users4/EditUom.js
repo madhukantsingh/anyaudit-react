@@ -12,6 +12,7 @@ const EditUom = () => {
     measure: "",
   });
 
+  
   const {  name,measure} = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -51,14 +52,9 @@ const EditUom = () => {
          
           <div className="form-group">
           <b>Name:</b>&nbsp;&nbsp;&nbsp;
-            <input
-              type="text"
-              
-              placeholder="Enter Your name"
-              name="name"
-              value={name}
-              onChange={e => onInputChange(e)}
-            />
+          <select onChange={e => onInputChange(e)} value={name} >
+        <option>{name}</option>
+      </select>
           </div>
           <div className="form-group">
           <b>Measure:</b>&nbsp;&nbsp;&nbsp;&nbsp;

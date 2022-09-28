@@ -53,7 +53,7 @@ const Productsname = () => {
                   </Link>
                   <Link
                     class="btn btn-outline-warning mr-2"
-                    to={`/users/edit/${user.id}`}
+                    to={`/users6/edit/${user.id}`}
                   >
                     Edit
                   </Link>

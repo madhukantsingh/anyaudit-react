@@ -15,7 +15,7 @@ const Home = () => {
   };
 
   const deleteUser = async id => {
-    await axios.delete(`http://127.0.0.1:8000/company${id}`)
+    await axios.delete(`http://127.0.0.1:8000/${id}`)
     .then(res=>res.json())
     .then((result)=>{
         alert(result);
@@ -39,7 +39,7 @@ const Home = () => {
         
           <thead class="thead-dark">
             <tr>
-            <th scope="col">S No</th>
+            <th scope="col">S.No</th>
               <th scope="col">Name</th>
               <th scope="col">Pan</th>
               <th scope="col">Email</th>

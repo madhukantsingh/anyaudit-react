@@ -7,11 +7,11 @@ const EditProductsname = () => {
   const { id } = useParams();
   const [user, setUser] = useState({
     
-    name: "",
-    uom:""
+    product_name: "",
+    UOM:""
   });
 
-  const {  name} = user;
+  const {product_name,UOM} = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -22,18 +22,18 @@ const EditProductsname = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://127.0.0.1:8000/users/${id}`, user);
-    history.push("/");
+    await axios.put(`http://127.0.0.1:8000/products/${id}`, user);
+    history.push("/productname");
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://127.0.0.1:8000/users/${id}`);
+    const result = await axios.get(`http://127.0.0.1:8000/products/${id}`);
     setUser(result.data);
   };
   return (
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">Edit A Company</h2>
+        <h2 className="text-center mb-4">Edit A Products</h2>
         <form onSubmit={e => onSubmit(e)}>
         <div className="form-group">
             <b>Products Name:</b>
@@ -41,8 +41,19 @@ const EditProductsname = () => {
               type="text"
              
               placeholder="Enter Your name"
-              name="name"
-              value={name}
+              name="product_name"
+              value={product_name}
+              onChange={e => onInputChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <b>UOM:</b>
+            <input
+              type="text"
+             
+              placeholder="Enter Your name"
+              name="UOM"
+              value={UOM}
               onChange={e => onInputChange(e)}
             />
           </div>

@@ -61,7 +61,7 @@ const Assets = () => {
                   </Link>
                   <Link
                     class="btn btn-outline-warning mr-2"
-                    to={`/assets/edit/${user.id}`}
+                    to={`/users7/edit/${user.id}`}
                   >
                     Edit
                   </Link>

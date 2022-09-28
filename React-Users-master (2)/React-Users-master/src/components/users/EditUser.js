@@ -25,7 +25,7 @@ const EditUser = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://127.0.0.1:8000//${id}`, user);
+    await axios.put(`http://127.0.0.1:8000/company/${id}`, user);
     history.push("/");
   };
 

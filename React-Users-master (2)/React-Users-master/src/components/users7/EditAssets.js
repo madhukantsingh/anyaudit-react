@@ -165,11 +165,11 @@ const EditAssets = () => {
               onChange={e => onInputChange(e)}
             />
           </div>
-          <input type="file"  value={attacthment} onChange={handleChange}/>
-          
+          <input type="file"  value={attacthment} onChange={this.fileChangedHandler}/>
+          <button onClick={this.uploadHandler}>Upload!</button>
           &nbsp;&nbsp;
           <br></br>
-          <button className="btn btn-warning btn-block">Update</button>
+          
         </form>
       </div>
     </div>
