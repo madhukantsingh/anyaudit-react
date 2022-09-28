@@ -158,7 +158,7 @@ const EditAssets = () => {
               onChange={e => onInputChange(e)}
             />
           </div>
-          <input type="file"  value={attacthment} onChange={handleChange}/>
+       
           
           &nbsp;&nbsp;
           <br></br>
