@@ -240,6 +240,7 @@ export class AddAssets extends Component{
     (error)=>{
         alert('Failed');
     })
+    
 }
 render(){
   return (
@@ -315,7 +316,8 @@ render(){
                     </Form.Group>
                     <Form.Group controlId="attacthment" className="col-md-6 form-group">
                         <b>File</b>
-                        <Form.Control type="file" name="attacthment" 
+                        <Form.Control type="file" name="attacthment" onChange={this.handleInputChange}
+        
                         placeholder="attacthment"/>
                     </Form.Group>
 

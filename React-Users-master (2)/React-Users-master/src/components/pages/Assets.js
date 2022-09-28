@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const Assets = () => {
   const [users, setUser] = useState([]);
+  
 
   useEffect(() => {
     loadUsers();
@@ -56,12 +57,12 @@ const Assets = () => {
                 <td>{user.attactment}</td>
                 
                 <td>
-                  <Link class="btn btn-dark mr-2" to={`/assets/${user.id}`}>
+                  <Link class="btn btn-dark mr-2" to={`/users7/${user.id}`}>
                     View
                   </Link>
                   <Link
                     class="btn btn-outline-warning mr-2"
-                    to={`/assets/edit/${user.id}`}
+                    to={`users7/edit/${user.id}`}
                   >
                     Edit
                   </Link>

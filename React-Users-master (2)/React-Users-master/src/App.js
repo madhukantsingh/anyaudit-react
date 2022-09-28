@@ -49,12 +49,14 @@ import AddSister from "./components/users9/AddSister";
 import ViewBusiness from "./components/users1/ViewBusiness";
 import EditSister from "./components/users9/EditSister";
 import ViewSister from "./components/users9/ViewSister";
+
 import ViewProductsname from "./components/users6/ViewProductsname";
 import ViewFamily from "./components/users5/ViewFamily";
 import ViewTypes from "./components/users3/ViewTypes";
 import ViewHeads from "./components/users2/ViewHeads";
 import ViewUom from "./components/users4/ViewUom";
 import ViewAssetstype from "./components/users8/ViewAssetstype";
+import ViewAssets from "./components/users7/ViewAssets";
 
 function App() {
   return (
@@ -99,6 +101,8 @@ function App() {
           <Route exact path="/users7/edit/:id" component={EditAssets} />
           <Route exact path="/users8/edit/:id" component={EditAssetstype} />
           <Route exact path="/users9/edit/:id" component={EditSister} />
+          
+
 
 
 
@@ -112,6 +116,8 @@ function App() {
           <Route exact path="/users3/:id" component={ViewTypes} />
           <Route exact path="/users2/:id" component={ViewHeads} />
           <Route exact path="/users8/:id" component={ViewAssetstype} />
+          <Route exact path="/users7/:id" component={ViewAssets} />
+
 
 
 

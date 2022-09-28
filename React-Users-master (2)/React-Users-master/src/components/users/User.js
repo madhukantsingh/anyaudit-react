@@ -10,6 +10,7 @@ const User = () => {
     phone: "",
     pan: "",
     cinno: "",
+    sister:""
 
   });
   const { id } = useParams();
@@ -34,6 +35,7 @@ const User = () => {
         <li className="list-group-item">phone: {user.phone}</li>
         <li className="list-group-item">pan: {user.pan}</li>
         <li className="list-group-item">cin_no: {user.cinno}</li>
+        <li className="list-group-item">sister company: {user.sister}</li>
       </ul>
     </div>
   );

@@ -35,4 +35,5 @@ urlpatterns=[
     url(r'^sister$',views.SisterApi),
     url(r'^sister/([0-9]+)$',views.SisterApi),
     url(r'^SaveFile$', views.SaveFile)
+
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

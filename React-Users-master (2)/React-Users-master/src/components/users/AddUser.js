@@ -85,7 +85,7 @@ render(){
                         placeholder="email"/>
                     </Form.Group>
 		<Form.Group controlId="phone" className="col-md-6 form-group" >
-                        <Form.Label>Products</Form.Label>
+                        <Form.Label>Mobile number</Form.Label>
                         <Form.Control type="text" name="phone" required 
                         placeholder="phone"/>
                     </Form.Group>

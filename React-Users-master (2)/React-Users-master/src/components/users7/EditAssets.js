@@ -2,38 +2,37 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
 
+
 const EditAssets = () => {
   let history = useHistory();
   const { id } = useParams();
-  const [user,setFile, setUser] = useState({
-    
+  const [user, setUser] = useState({
     name: "",
     location:"",
     area:"",
     fmv:"",
     sdv:"",
 
-    left:"",
-    right:"",
+    leftb:"",
+    rightb:"",
     front:"",
     back:"",
     attacthment:""
+   
   });
 
-  const { name,location,area,fmv,sdv,left,right,front,back,attacthment } = user;
+  const {  name,location,area,fmv,sdv,leftb,rightb,front,back,attacthment} = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
-  function handleChange(event) {
-    setFile(event.target.files [0])
-  }
+
   useEffect(() => {
     loadUser();
   }, []);
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://127.0.0.1:8000/${id}`, user)
+    await axios.put(`http://localhost:8000/assets/${id}`, user)
     .then(res=>res.json())
     .then((result)=>{
         alert(result);
@@ -42,19 +41,20 @@ const EditAssets = () => {
     (error)=>{
         alert('Updated Sucessfully');
     });
-    history.push("/assetstype");
+    history.push("/assets");
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://127.0.0.1:8000/users/${id}`);
+    const result = await axios.get(`http://localhost:8000/assets/${id}`);
     setUser(result.data);
   };
   return (
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
-        <h2 className="text-center mb-4">Edit A Assets</h2>
+        <h2 className="text-center mb-4">Edit Assets</h2>
         <form onSubmit={e => onSubmit(e)}>
-       
+        
+         
         <div className="form-group">
             <b>Name:</b>
             <input
@@ -77,14 +77,7 @@ const EditAssets = () => {
               onChange={e => onInputChange(e)}
             />
           </div>
-          <div>
-            <b>Type:</b>
-      <select  className="form-group">
-        <option value="select">select</option>
-        <option value="uom1">1</option>
-        <option value="uom2">2</option>
-      </select>&nbsp; &nbsp;
-     </div> 
+          
           <div className="form-group">
             <b>Area:</b>
             <input
@@ -128,7 +121,7 @@ const EditAssets = () => {
              
               placeholder="Enter Your name"
               name="left"
-              value={left}
+              value={leftb}
               onChange={e => onInputChange(e)}
             />
           </div>
@@ -139,7 +132,7 @@ const EditAssets = () => {
             //   className="form-control form-control-lg"
               placeholder="Enter Your name"
               name="right"
-              value={right}
+              value={rightb}
               onChange={e => onInputChange(e)}
             />
           </div>
@@ -165,10 +158,9 @@ const EditAssets = () => {
               onChange={e => onInputChange(e)}
             />
           </div>
-          <input type="file"  value={attacthment} onChange={handleChange}/>
+        
           
-          &nbsp;&nbsp;
-          <br></br>
+       
           <button className="btn btn-warning btn-block">Update</button>
         </form>
       </div>
@@ -177,3 +169,4 @@ const EditAssets = () => {
 };
 
 export default EditAssets;
+

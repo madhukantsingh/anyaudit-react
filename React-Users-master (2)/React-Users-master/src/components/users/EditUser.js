@@ -11,10 +11,12 @@ const EditUser = () => {
     pan: "",
     email: "",  
     phone: "",
-    cinno: ""
+    cinno: "",
+    sister:""
+   
   });
 
-  const {  name, pan, email, phone, cinno } = user;
+  const {  name, pan, email, phone, cinno, sister} = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
@@ -25,7 +27,7 @@ const EditUser = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://127.0.0.1:8000//${id}`, user);
+    await axios.put(`http://127.0.0.1:8000/company/${id}`, user);
     history.push("/");
   };
 
@@ -105,6 +107,18 @@ const EditUser = () => {
               onChange={e => onInputChange(e)}
             />
           </div>
+          <div className="form-group">
+          <b>Sister:</b>&nbsp;
+            <input
+              type="text"
+              // className="form-control"
+              placeholder="Enter "
+              name="sister"
+              value={sister}
+              onChange={e => onInputChange(e)}
+            />
+          </div>
+          
           <button className="btn btn-warning btn-block">Update</button>
         </form>
       </div>
